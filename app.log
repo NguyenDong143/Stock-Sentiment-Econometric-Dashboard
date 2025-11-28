@@ -1699,3 +1699,64 @@ tornado.websocket.WebSocketClosedError
 2025-11-27 23:14:00,731 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
 2025-11-27 23:14:00,765 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
 2025-11-27 23:22:05,494 - WARNING - Thi\u1ebfu file: data\data_before_scandals\VCB.xlsx
+2025-11-28 11:34:29,566 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-11-28 11:34:29,593 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-11-28 11:35:38,158 - INFO - \u2705 \u0110ã t\u1ea3i 28 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-11-28 11:35:38,158 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 28 tin nh\u1eafn t\u1eeb session: global_chat
+2025-11-28 11:36:37,522 - WARNING - L\u1ea7n th\u1eed 1: L\u1ed7i t\u1ea3i t\u1eeb VCI: 'NoneType' object is not subscriptable
+2025-11-28 11:36:37,523 - INFO - TCBS không cung c\u1ea5p thông tin danh sách. D\u1eef li\u1ec7u t\u1ef1 \u0111\u1ed9ng tr\u1ea3 v\u1ec1 t\u1eeb VCI.
+2025-11-28 11:36:38,023 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: Input data is empty or not provided.
+2025-11-28 11:36:38,493 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: Input data is empty or not provided.
+2025-11-28 11:36:38,989 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: Input data is empty or not provided.
+2025-11-28 11:36:39,647 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: Input data is empty or not provided.
+2025-11-28 11:36:40,230 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: Input data is empty or not provided.
+2025-11-28 11:36:40,704 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: Input data is empty or not provided.
+2025-11-28 11:36:41,194 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: Input data is empty or not provided.
+2025-11-28 11:36:41,657 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-11-28: Input data is empty or not provided.
+2025-11-28 11:36:44,206 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: Input data is empty or not provided.
+2025-11-28 11:36:44,821 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: Input data is empty or not provided.
+2025-11-28 11:36:45,359 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: Input data is empty or not provided.
+2025-11-28 11:36:45,877 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: Input data is empty or not provided.
+2025-11-28 11:36:46,457 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: Input data is empty or not provided.
+2025-11-28 11:36:46,945 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: Input data is empty or not provided.
+2025-11-28 11:36:47,476 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: Input data is empty or not provided.
+2025-11-28 11:36:48,287 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-11-28: Input data is empty or not provided.
+2025-11-28 11:36:50,745 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: Input data is empty or not provided.
+2025-11-28 11:36:51,284 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: Input data is empty or not provided.
+2025-11-28 11:36:51,802 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: Input data is empty or not provided.
+2025-11-28 11:36:52,305 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: Input data is empty or not provided.
+2025-11-28 11:36:52,801 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: Input data is empty or not provided.
+2025-11-28 11:36:53,207 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: Input data is empty or not provided.
+2025-11-28 11:36:53,659 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: Input data is empty or not provided.
+2025-11-28 11:36:54,127 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-11-28: Input data is empty or not provided.
+2025-11-28 11:36:54,130 - WARNING - L\u1ea7n th\u1eed 1: L\u1ed7i t\u1ea3i t\u1eeb TCBS: RetryError[<Future at 0x270115eb230 state=finished raised ValueError>]
+2025-11-28 11:36:55,822 - WARNING - L\u1ea7n th\u1eed 2: L\u1ed7i t\u1ea3i t\u1eeb VCI: 'NoneType' object is not subscriptable
+2025-11-28 11:36:55,823 - INFO - TCBS không cung c\u1ea5p thông tin danh sách. D\u1eef li\u1ec7u t\u1ef1 \u0111\u1ed9ng tr\u1ea3 v\u1ec1 t\u1eeb VCI.
+2025-11-28 11:36:56,307 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: Input data is empty or not provided.
+2025-11-28 11:36:56,774 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: Input data is empty or not provided.
+2025-11-28 11:36:57,239 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: Input data is empty or not provided.
+2025-11-28 11:36:57,746 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: Input data is empty or not provided.
+2025-11-28 11:36:58,188 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: Input data is empty or not provided.
+2025-11-28 11:36:58,671 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: Input data is empty or not provided.
+2025-11-28 11:36:59,177 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: Input data is empty or not provided.
+2025-11-28 11:36:59,638 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-11-28: Input data is empty or not provided.
+2025-11-28 11:37:02,100 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: Input data is empty or not provided.
+2025-11-28 11:37:02,534 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: Input data is empty or not provided.
+2025-11-28 11:37:03,033 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: Input data is empty or not provided.
+2025-11-28 11:37:03,504 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: Input data is empty or not provided.
+2025-11-28 11:37:04,027 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: Input data is empty or not provided.
+2025-11-28 11:37:04,539 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: Input data is empty or not provided.
+2025-11-28 11:37:04,994 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: Input data is empty or not provided.
+2025-11-28 11:37:05,407 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-11-28: Input data is empty or not provided.
+2025-11-28 11:37:07,821 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: Input data is empty or not provided.
+2025-11-28 11:37:08,292 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: Input data is empty or not provided.
+2025-11-28 11:37:08,809 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: Input data is empty or not provided.
+2025-11-28 11:37:09,254 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: Input data is empty or not provided.
+2025-11-28 11:37:09,756 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: Input data is empty or not provided.
+2025-11-28 11:37:10,242 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: Input data is empty or not provided.
+2025-11-28 11:37:10,659 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: Input data is empty or not provided.
+2025-11-28 11:37:11,129 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-11-28: Input data is empty or not provided.
+2025-11-28 11:37:11,132 - WARNING - L\u1ea7n th\u1eed 2: L\u1ed7i t\u1ea3i t\u1eeb TCBS: RetryError[<Future at 0x2701198fbd0 state=finished raised ValueError>]
+2025-11-28 11:37:12,048 - INFO - \U0001f4be \u0110ã l\u01b0u 29 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
+2025-11-28 11:38:00,300 - INFO - \u2705 \u0110ã t\u1ea3i 1976 ngày d\u1eef li\u1ec7u cho VCB t\u1eeb Vnstock
+2025-11-28 11:38:00,307 - INFO - \U0001f4be \u0110ã l\u01b0u 30 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
