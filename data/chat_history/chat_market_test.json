@@ -1,0 +1,14 @@
+{
+  "session_id": "market_test",
+  "last_updated": "2025-11-27T20:06:49.389427",
+  "message_count": 1,
+  "metadata": {
+    "type": "normal"
+  },
+  "messages": [
+    {
+      "user": "Thị trường hôm nay thế nào?",
+      "assistant": "VNINDEX đang cho thấy sự giằng co khi dao động quanh ngưỡng [MỨC ĐIỂM]. Thanh khoản ở mức [MỨC THANH KHOẢN], cho thấy nhà đầu tư vẫn thận trọng. Khối ngoại có dấu hiệu [MUA/BÁN] ròng, tác động phần nào đến tâm lý thị trường."
+    }
+  ]
+}
