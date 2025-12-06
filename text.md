@@ -380,8 +380,6 @@ Tin 3: Pos=0.3, Neg=0.3, Neu=0.4 → Score = 0.3 - 0.3 = 0.0
 score = (+1 × P(Positive)) + (0 × P(Neutral)) + (-1 × P(Negative))
      = P(Positive) - P(Negative)
 ```
-→ **Giống công thức hiện tại** → **ĐÚNG RỒI!** ✅
-
 #### **Phương án 2: NET SENTIMENT với CONFIDENCE**
 
 ```python
@@ -402,28 +400,6 @@ polarity = Pos - Neg  # [-1, +1]
 strength = 1 - Neu     # [0, 1], càng cao = càng chắc chắn
 score = polarity × strength
 ```
-
-**Ví dụ:**
-```
-Tin 1: Pos=0.8, Neg=0.1, Neu=0.1 
-→ polarity = +0.7, strength = 0.9 
-→ score = 0.7 × 0.9 = +0.63
-
-Tin 2: Pos=0.5, Neg=0.2, Neu=0.3
-→ polarity = +0.3, strength = 0.7
-→ score = 0.3 × 0.7 = +0.21 (giảm xuống vì uncertainty cao)
-```
-
-**Ưu điểm**: Tính đến độ tin cậy của model
-
-#### **Phương án 4: MULTINOMIAL APPROACH**
-```python
-# Coi Neutral như một trạng thái riêng
-# Sử dụng 3 time series riêng: Pos(t), Neg(t), Neu(t)
-# TVAR với 3 biến phụ thuộc
-```
-**Phức tạp hơn**, nhưng giữ được toàn bộ thông tin
-
 #### **Đề xuất cải tiến:**
 **OPTION 1: Giữ nguyên (khuyên dùng cho báo cáo)**
 ```python

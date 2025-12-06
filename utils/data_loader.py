@@ -118,8 +118,6 @@ def load_sentiment_data(
         file_path = os.path.join(data_dir, f"{ticker.upper()}.xlsx")
         if os.path.exists(file_path):
             df = _safe_load_excel(file_path)
-            if not df.empty:
-                st.success(f"📰 Đã tải dữ liệu cho `{ticker}` từ `{folder_name}/`")
             return df
         else:
             st.warning(f"⚠️ Không tìm thấy file `{ticker}.xlsx` trong `{folder_name}/`.")
@@ -315,8 +313,6 @@ def load_granger_data(
         file_path = os.path.join(data_dir, f"{ticker.upper()}.xlsx")
         if os.path.exists(file_path):
             df = _safe_load_excel(file_path)
-            if not df.empty:
-                st.success(f"📈 Đã tải dữ liệu Granger cho `{ticker}` từ `{folder_name}/`")
             return df
         else:
             st.warning(f"⚠️ Không tìm thấy file `{ticker}.xlsx` trong `{folder_name}/`.")

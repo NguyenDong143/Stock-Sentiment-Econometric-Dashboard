@@ -588,19 +588,49 @@ def _add_adx_chart(fig, data, row):
 
 
 def _add_levels(fig, data, levels, row):
+    """Thêm các mức giá (Fibonacci, Support, Resistance) vào biểu đồ"""
     try:
+        # Màu sắc cho từng mức Fibonacci
+        fib_colors = {
+            "Fib_0%": "#FF5252",      # Đỏ sáng - High
+            "Fib_23.6%": "#FF8A80",   # Đỏ nhạt
+            "Fib_38.2%": "#FFB74D",   # Cam
+            "Fib_50%": "#FFD54F",     # Vàng - Mức quan trọng
+            "Fib_61.8%": "#81C784",   # Xanh lá nhạt - Golden ratio
+            "Fib_78.6%": "#66BB6A",   # Xanh lá
+            "Fib_100%": "#00E676",    # Xanh lá sáng - Low
+        }
+        
         for lvl, val in (levels or {}).items():
+            # Chọn màu dựa trên tên level
+            if lvl in fib_colors:
+                color = fib_colors[lvl]
+                show_legend = True  # Hiển thị Fibonacci trong legend
+            elif "support" in lvl.lower():
+                color = COLORS["support"]
+                show_legend = False
+            elif "resistance" in lvl.lower():
+                color = COLORS["resistance"]
+                show_legend = False
+            else:
+                color = COLORS["neutral"]
+                show_legend = False
+            
             fig.add_trace(go.Scatter(
                 x=[data.index.min(), data.index.max()],
                 y=[val, val],
-                mode="lines",
+                mode="lines+text",
                 name=lvl,
                 line=dict(
-                    color=COLORS["support"] if "fib_100" in lvl.lower() or "support" in lvl.lower() else COLORS["resistance"],
+                    color=color,
                     dash="dash",
-                    width=2.0,
+                    width=1.5,
                 ),
-                showlegend=False, 
+                text=[lvl, ""],  # Hiển thị label ở đầu đường
+                textposition="middle right",
+                textfont=dict(size=10, color=color),
+                showlegend=show_legend,
+                hovertemplate=f"<b>{lvl}</b><br>Giá: {val:,.0f}<extra></extra>",
             ), row=row, col=1)
     except Exception as e:
         logger.warning(f"Levels error: {e}")

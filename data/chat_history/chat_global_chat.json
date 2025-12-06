@@ -1,7 +1,7 @@
 {
   "session_id": "global_chat",
-  "last_updated": "2025-11-28T11:38:00.305909",
-  "message_count": 30,
+  "last_updated": "2025-11-28T15:42:26.705752",
+  "message_count": 32,
   "metadata": {
     "type": "direct_price"
   },
@@ -125,6 +125,14 @@
     {
       "user": "giá cổ phiếu VCB hôm nay",
       "assistant": "📊 PHÂN TÍCH KỸ THUẬT VCB:\n- Giá hiện tại: 58 VNĐ\n- SMA(20): 59 | Xu hướng: Giảm\n- SMA(50): 61 | Golden Cross: Không\n- RSI(14): 36.8 - Trung tính\n- Volume: 0.6x trung bình (Bình thường)"
+    },
+    {
+      "user": "vnindex hôm nay bao điểm",
+      "assistant": "VNINDEX hiện ở mức 1,684 điểm.\n"
+    },
+    {
+      "user": "giá cổ phiế FLC hiện nay",
+      "assistant": "📊 PHÂN TÍCH KỸ THUẬT FLC:\n- Giá hiện tại: 4 VNĐ\n- SMA(20): 4 | Xu hướng: Giảm\n- SMA(50): 4 | Golden Cross: Không\n- RSI(14): nan - Trung tính\n- Volume: 1.0x trung bình (Bình thường)"
     }
   ]
 }

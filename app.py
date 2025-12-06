@@ -172,6 +172,7 @@ with st.sidebar.expander("📊 Trend & Volatility", expanded=False):
     st.checkbox("Bollinger Bands", value=False, key="show_bb")
     st.checkbox("ADX", value=False, key="show_adx")
     st.checkbox("ATR", value=False, key="show_atr")
+    st.checkbox("Fibonacci Retracement", value=False, key="show_fibonacci")
 
 with st.sidebar.expander("📦 Volume Indicators", expanded=False):
     st.checkbox("OBV", value=False, key="show_obv")
@@ -217,10 +218,10 @@ st.markdown(
 tabs = st.tabs([
     "📘 Pricing Tab",
     "💬 Phân tích cảm xúc (PhoBERT)",
+    "📰 News Articles",
     "📊 Kiểm định Tương quan (Pearson)",
     "🔁 Kiểm định Nhân quả (Granger)",
-    "📉 Mô hình Ngưỡng (TVAR)",
-    "📰 News Articles"
+    "📉 Mô hình Ngưỡng (TVAR)"
 ])
 
 with tabs[0]:
@@ -230,17 +231,18 @@ with tabs[1]:
     sentiment_tab = get_tab_module("ui.sentiment_tab")
     sentiment_tab(ticker)
 with tabs[2]:
-    pearson_tab = get_tab_module("ui.pearson_tab")
-    pearson_tab(ticker)
-with tabs[3]:
-    granger_tab = get_tab_module("ui.granger_tab")
-    granger_tab(ticker)
-with tabs[4]:
-    tvar_tab = get_tab_module("ui.tvar_tab")
-    tvar_tab(ticker)
-with tabs[5]:
     news_tab = get_tab_module("ui.news_tab")
     news_tab(ticker)
+with tabs[3]:
+    pearson_tab = get_tab_module("ui.pearson_tab")
+    pearson_tab(ticker)
+with tabs[4]:
+    granger_tab = get_tab_module("ui.granger_tab")
+    granger_tab(ticker)
+with tabs[5]:
+    tvar_tab = get_tab_module("ui.tvar_tab")
+    tvar_tab(ticker)
+
 
 
 # ==============================

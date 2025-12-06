@@ -38,10 +38,15 @@ def render(ticker: str = None):
     if st.button("🔍 Phân tích cảm xúc"):
         if text_input.strip():
             try:
-                # Lazy import chỉ khi cần phân tích
-                from models.sentiment_phobert import classify_sentiment
+                # Lazy import để lấy cả scores chi tiết
+                from models.sentiment_phobert import analyze_sentiment, classify_sentiment
+                
                 with st.spinner("Đang phân tích với PhoBERT..."):
+                    # Lấy scores chi tiết
+                    scores_dict = analyze_sentiment(text_input)
+                    # Lấy label phân loại
                     labels = classify_sentiment([text_input])
+                
                 label_map = {-1: "Tiêu cực 😞", 0: "Trung tính 😐", 1: "Tích cực 😃"}
                 sentiment_label = label_map.get(labels[0], "Không xác định")
 
@@ -62,6 +67,39 @@ def render(ticker: str = None):
                     """,
                     unsafe_allow_html=True,
                 )
+                
+                # Hiển thị scores chi tiết
+                st.markdown("### 📊 Probability Scores:")
+                col1, col2, col3 = st.columns(3)
+                
+                with col1:
+                    neg_score = scores_dict.get('NEG', 0) * 100
+                    st.metric(
+                        label="😞 Tiêu cực (NEG)",
+                        value=f"{neg_score:.2f}%",
+                        delta=None
+                    )
+                
+                with col2:
+                    neu_score = scores_dict.get('NEU', 0) * 100
+                    st.metric(
+                        label="😐 Trung tính (NEU)",
+                        value=f"{neu_score:.2f}%",
+                        delta=None
+                    )
+                
+                with col3:
+                    pos_score = scores_dict.get('POS', 0) * 100
+                    st.metric(
+                        label="😃 Tích cực (POS)",
+                        value=f"{pos_score:.2f}%",
+                        delta=None
+                    )
+                
+                # Hiển thị raw scores dict
+                with st.expander("🔍 Xem raw scores"):
+                    st.json(scores_dict)
+                    
             except ValueError as e:
                 st.error(f"⚠️ Dữ liệu đầu vào không hợp lệ: {e}")
             except Exception as e:

@@ -197,8 +197,6 @@ def render(ticker: str = None):
         st.info("💡 Các cột hiện có: " + ", ".join(df.columns.tolist()))
         return
 
-    st.info(f"📊 Dữ liệu: {len(df)} quan sát | {len(available_cols)} biến số")
-
     # ======================================================
     # 🧮 CLASSIC GRANGER TEST (Đơn biến)
     # ======================================================

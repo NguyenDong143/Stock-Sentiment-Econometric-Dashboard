@@ -113,8 +113,6 @@ def render(ticker: str = None):
     tab1, tab2 = st.tabs(["📊 Phân phối theo nhóm cảm xúc", "📈 Giá trung bình theo cảm xúc"])
 
     with tab1:
-        st.markdown("Hiển thị toàn bộ giá cổ phiếu phân bố theo nhóm cảm xúc `label`.")
-        
         @st.cache_data(show_spinner=False, ttl=3600)
         def create_strip_plot(df_data, price_column, ticker_name):
             import plotly.express as px
@@ -137,8 +135,6 @@ def render(ticker: str = None):
         st.plotly_chart(fig1, use_container_width=True)
 
     with tab2:
-        st.markdown("Hiển thị **giá cổ phiếu trung bình** của mỗi nhóm cảm xúc `label`.")
-        
         @st.cache_data(show_spinner=False, ttl=3600)
         def create_bar_plot(df_data, price_column, ticker_name):
             import plotly.express as px

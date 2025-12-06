@@ -33,6 +33,7 @@ def render(ticker: str = None):
     show_atr = st.session_state.get("show_atr", False)
     show_obv = st.session_state.get("show_obv", False)
     show_vwap = st.session_state.get("show_vwap", False)
+    show_fibonacci = st.session_state.get("show_fibonacci", False)
 
     # ==============================
     # 🧭 Tiêu đề
@@ -284,6 +285,11 @@ def render(ticker: str = None):
             df_price = indicators.add_vwap(df_price)
             selected_indicators.append("VWAP")
         
+        # Tính toán Fibonacci Retracement levels
+        fib_levels = {}
+        if show_fibonacci:
+            fib_levels = indicators.add_fibonacci_levels(df_price, lookback_period=len(df_price))
+        
         # ==============================
         # 🎨 Vẽ biểu đồ chuyên nghiệp
         # ==============================
@@ -292,6 +298,7 @@ def render(ticker: str = None):
                 data=df_price,
                 chart_type=chart_type,
                 indicators=selected_indicators,
+                levels=fib_levels if show_fibonacci else None,
                 title=f"📈 {ticker}",
                 height=850,  # Tăng chiều cao
                 show_volume=show_volume,
@@ -328,6 +335,48 @@ def render(ticker: str = None):
                                 st.text(f"{key}: {val}")
             else:
                 st.info("Chọn các chỉ số từ sidebar để xem tóm tắt.")
+        
+        # ==============================
+        # 📊 Hiển thị Fibonacci Retracement Levels
+        # ==============================
+        if show_fibonacci and fib_levels:
+            st.subheader("📊 Fibonacci Retracement Levels")
+            
+            st.markdown("""
+            **Fibonacci Retracement** là công cụ phân tích kỹ thuật dựa trên dãy số Fibonacci để xác định 
+            các mức hỗ trợ và kháng cự tiềm năng. Các mức quan trọng:
+            - **61.8% (Golden Ratio)**: Mức thoái lui quan trọng nhất
+            - **50%**: Mức tâm lý quan trọng
+            - **38.2%** và **23.6%**: Mức hỗ trợ/kháng cự phụ
+            """)
+            
+            # Tạo bảng hiển thị các mức Fibonacci
+            fib_df = pd.DataFrame([
+                {"Mức": k, "Giá": f"{v:,.0f} VNĐ"} 
+                for k, v in fib_levels.items()
+            ])
+            
+            # Highlight mức quan trọng
+            def highlight_important(row):
+                if "50%" in row["Mức"] or "61.8%" in row["Mức"]:
+                    return ['background-color: #FFD54F; color: black'] * len(row)
+                elif "0%" in row["Mức"] or "100%" in row["Mức"]:
+                    return ['background-color: #64B5F6; color: white'] * len(row)
+                return [''] * len(row)
+            
+            st.dataframe(
+                fib_df.style.apply(highlight_important, axis=1),
+                use_container_width=True,
+                hide_index=True
+            )
+            
+            # Giá hiện tại so với Fibonacci
+            current_price = df_price['Close'].iloc[-1]
+            st.metric(
+                label="Giá hiện tại",
+                value=f"{current_price:,.0f} VNĐ",
+                delta=None
+            )
     
             # ==============================
             # 3️⃣ Ghi chú giai đoạn scandal
@@ -385,7 +434,6 @@ def render(ticker: str = None):
                     balance_sheet.index = balance_sheet.index.astype(str)
                     
                     # Hiển thị bảng đầy đủ
-                    st.markdown("#### 📋 Chi tiết")
                     st.dataframe(balance_sheet, use_container_width=True)
                 else:
                     st.warning(f"⚠️ Không có dữ liệu bảng cân đối kế toán cho {ticker}")
@@ -412,7 +460,6 @@ def render(ticker: str = None):
                     # Convert index sang string
                     income_statement.index = income_statement.index.astype(str)                   
                     # Hiển thị bảng đầy đủ
-                    st.markdown("#### 📋 Chi tiết")
                     st.dataframe(income_statement, use_container_width=True)
                 else:
                     st.warning(f"⚠️ Không có dữ liệu báo cáo kết quả kinh doanh cho {ticker}")
@@ -439,7 +486,6 @@ def render(ticker: str = None):
                     # Convert index sang string
                     cash_flow.index = cash_flow.index.astype(str)
                     # Hiển thị bảng đầy đủ
-                    st.markdown("#### 📋 Chi tiết")
                     st.dataframe(cash_flow, use_container_width=True)
                 else:
                     st.warning(f"⚠️ Không có dữ liệu báo cáo lưu chuyển tiền tệ cho {ticker}")
@@ -466,7 +512,6 @@ def render(ticker: str = None):
                     # Convert index sang string
                     ratios.index = ratios.index.astype(str)
                     # Hiển thị bảng đầy đủ
-                    st.markdown("#### 📋 Tất cả chỉ số")
                     st.dataframe(ratios, use_container_width=True)
                 else:
                     st.warning(f"⚠️ Không có dữ liệu chỉ số tài chính cho {ticker}")
