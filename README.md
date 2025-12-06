@@ -351,7 +351,7 @@ Dự án này được phát triển cho mục đích nghiên cứu và giáo d�
 
 ## 👥 Tác giả
 
-**Stock News Project Team**
+**Nguyễn Hoàng Đồng**
 
 ---
 
