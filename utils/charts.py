@@ -81,7 +81,7 @@ def validate_data(data: pd.DataFrame, chart_type: str) -> bool:
     
     Args:
         data: DataFrame cần validate
-        chart_type: "Candle" hoặc "Line"
+        chart_type: Loại biểu đồ (có thể có emoji prefix)
         
     Raises:
         ValueError: Nếu dữ liệu không hợp lệ
@@ -92,8 +92,15 @@ def validate_data(data: pd.DataFrame, chart_type: str) -> bool:
     if data is None or data.empty:
         raise ValueError("DataFrame is empty or None")
     
+    # Normalize chart_type - extract the chart name after emoji
+    chart_type_clean = chart_type.split()[-1] if chart_type else "Candle"
+    
     # Kiểm tra columns bắt buộc
-    required_cols = ['Open', 'High', 'Low', 'Close'] if chart_type == "Candle" else ['Close']
+    if chart_type_clean == "Candle":
+        required_cols = ['Open', 'High', 'Low', 'Close']
+    else:
+        required_cols = ['Close']
+    
     missing = [col for col in required_cols if col not in data.columns]
     if missing:
         raise ValueError(f"Missing columns: {missing}")
@@ -188,9 +195,12 @@ def create_advanced_chart(
     # Validation đầu vào
     validate_data(data, chart_type)
     
+    # Normalize chart_type - extract the chart name after emoji
+    chart_type_clean = chart_type.split()[-1] if chart_type else "Candle"
+    
     # Loại bỏ các hàng có giá trị NaN hoặc 0 trong OHLC để tránh nến bị méo
     data = data.copy()
-    if chart_type == "Candle":
+    if chart_type_clean == "Candle":
         data = data.dropna(subset=['Open', 'High', 'Low', 'Close'])
         data = data[(data['Open'] > 0) & (data['High'] > 0) & (data['Low'] > 0) & (data['Close'] > 0)]
 
@@ -269,8 +279,20 @@ def create_advanced_chart(
 # COMPONENTS
 # ==========================================================
 def _add_main_chart(fig, data, chart_type, row):
+    """Add main price chart with support for 8 chart types."""
     try:
-        if chart_type == "Candle":
+        # Normalize chart_type - extract the chart name after emoji
+        chart_type_clean = chart_type.split()[-1] if chart_type else "Candle"
+        
+        # Common hover template
+        base_hover = (
+            "<b>Ngày:</b> %{x|%d/%m/%Y}<br>"
+            "<b>Giá:</b> %{y:,.0f} VNĐ<br>"
+            "<extra></extra>"
+        )
+        
+        if chart_type_clean == "Candle":
+            # 🕯️ Candlestick - Classic trading chart
             fig.add_trace(
                 go.Candlestick(
                     x=data.index,
@@ -279,29 +301,185 @@ def _add_main_chart(fig, data, chart_type, row):
                     low=data["Low"],
                     close=data["Close"],
                     name="Price",
-                    # Màu sắc và viền cho nến tăng
                     increasing_fillcolor=COLORS["bullish"],
                     increasing_line_color=COLORS["bullish_line"],
                     increasing_line_width=1.5,
-                    # Màu sắc và viền cho nến giảm
                     decreasing_fillcolor=COLORS["bearish"],
                     decreasing_line_color=COLORS["bearish_line"],
                     decreasing_line_width=1.5,
-                    # Hover template đẹp hơn
                     hovertext=[
                         f"<b>Ngày:</b> {idx.strftime('%Y-%m-%d')}<br>"
-                        f"<b>Mở:</b> {row['Open']:,.0f}<br>"
-                        f"<b>Cao:</b> {row['High']:,.0f}<br>"
-                        f"<b>Thấp:</b> {row['Low']:,.0f}<br>"
-                        f"<b>Đóng:</b> {row['Close']:,.0f}<br>"
-                        f"<b>Thay đổi:</b> {((row['Close'] - row['Open']) / row['Open'] * 100):+.2f}%"
-                        for idx, row in data.iterrows()
+                        f"<b>Mở:</b> {r['Open']:,.0f}<br>"
+                        f"<b>Cao:</b> {r['High']:,.0f}<br>"
+                        f"<b>Thấp:</b> {r['Low']:,.0f}<br>"
+                        f"<b>Đóng:</b> {r['Close']:,.0f}<br>"
+                        f"<b>Thay đổi:</b> {((r['Close'] - r['Open']) / r['Open'] * 100):+.2f}%"
+                        for idx, r in data.iterrows()
                     ],
                     hoverinfo="text",
                 ),
                 row=row, col=1,
             )
+            
+        elif chart_type_clean == "Line":
+            # 📈 Line - Simple line chart
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"],
+                    mode="lines",
+                    name="Close",
+                    line=dict(color="#60A5FA", width=2.5, shape='linear'),
+                    hovertemplate=base_hover,
+                ),
+                row=row, col=1,
+            )
+            
+        elif chart_type_clean == "Bar":
+            # 📊 Bar - Bar chart for close prices
+            colors = np.where(
+                data["Close"].diff().fillna(0) >= 0,
+                COLORS["bullish"],
+                COLORS["bearish"]
+            )
+            fig.add_trace(
+                go.Bar(
+                    x=data.index,
+                    y=data["Close"],
+                    name="Close",
+                    marker_color=colors,
+                    opacity=0.85,
+                    hovertemplate=base_hover,
+                ),
+                row=row, col=1,
+            )
+            
+        elif chart_type_clean == "Step":
+            # 🔲 Step - Step line chart (staircase)
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"],
+                    mode="lines",
+                    name="Close",
+                    line=dict(color="#A78BFA", width=2, shape='hv'),  # hv = horizontal-vertical
+                    fill='tozeroy',
+                    fillcolor='rgba(167, 139, 250, 0.15)',
+                    hovertemplate=base_hover,
+                ),
+                row=row, col=1,
+            )
+            
+        elif chart_type_clean == "Mountain":
+            # 🏔️ Mountain - Area chart with gradient fill
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"],
+                    mode="lines",
+                    name="Close",
+                    line=dict(color="#22C55E", width=2),
+                    fill='tozeroy',
+                    fillcolor='rgba(34, 197, 94, 0.25)',
+                    hovertemplate=base_hover,
+                ),
+                row=row, col=1,
+            )
+            # Add glow effect with second trace
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"],
+                    mode="lines",
+                    name="",
+                    line=dict(color="#4ADE80", width=1),
+                    showlegend=False,
+                    hoverinfo='skip',
+                ),
+                row=row, col=1,
+            )
+            
+        elif chart_type_clean == "Wave":
+            # 🌊 Wave - Smooth spline curve with gradient
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"],
+                    mode="lines",
+                    name="Close",
+                    line=dict(color="#06B6D4", width=3, shape='spline', smoothing=1.3),
+                    fill='tozeroy',
+                    fillcolor='rgba(6, 182, 212, 0.2)',
+                    hovertemplate=base_hover,
+                ),
+                row=row, col=1,
+            )
+            # Add shimmer effect
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"] * 1.001,  # Slight offset for glow
+                    mode="lines",
+                    name="",
+                    line=dict(color="rgba(6, 182, 212, 0.5)", width=1, shape='spline', smoothing=1.3),
+                    showlegend=False,
+                    hoverinfo='skip',
+                ),
+                row=row, col=1,
+            )
+            
+        elif chart_type_clean == "Scatter":
+            # ⚫ Scatter - Dot plot with color gradient
+            price_change = data["Close"].pct_change().fillna(0)
+            colors = np.where(price_change >= 0, COLORS["bullish"], COLORS["bearish"])
+            sizes = np.clip(np.abs(price_change) * 500 + 6, 6, 18)  # Size based on volatility
+            
+            fig.add_trace(
+                go.Scatter(
+                    x=data.index,
+                    y=data["Close"],
+                    mode="markers",
+                    name="Close",
+                    marker=dict(
+                        color=colors,
+                        size=sizes,
+                        opacity=0.8,
+                        line=dict(width=1, color='rgba(255,255,255,0.3)')
+                    ),
+                    hovertemplate=(
+                        "<b>Ngày:</b> %{x|%d/%m/%Y}<br>"
+                        "<b>Giá:</b> %{y:,.0f} VNĐ<br>"
+                        "<extra></extra>"
+                    ),
+                ),
+                row=row, col=1,
+            )
+            
+        elif chart_type_clean == "Histogram":
+            # 📉 Histogram - Distribution of daily returns
+            returns = data["Close"].pct_change().dropna() * 100  # Convert to percentage
+            
+            fig.add_trace(
+                go.Histogram(
+                    x=returns,
+                    nbinsx=50,
+                    name="Returns Distribution",
+                    marker=dict(
+                        color='rgba(236, 72, 153, 0.7)',  # Pink
+                        line=dict(color='#EC4899', width=1)
+                    ),
+                    hovertemplate=(
+                        "<b>Return:</b> %{x:.2f}%<br>"
+                        "<b>Frequency:</b> %{y}<br>"
+                        "<extra></extra>"
+                    ),
+                ),
+                row=row, col=1,
+            )
+            # Note: Histogram uses different x-axis (returns % instead of dates)
+            
         else:
+            # Fallback to Line chart
             fig.add_trace(
                 go.Scatter(
                     x=data.index,
@@ -309,13 +487,11 @@ def _add_main_chart(fig, data, chart_type, row):
                     mode="lines",
                     name="Close",
                     line=dict(color=COLORS["neutral"], width=2),
-                    hovertemplate="<b>Close</b><br>" +
-                                  "Ngày: %{x|%d/%m/%Y}<br>" +
-                                  "Giá: %{y:,.2f}<br>" +
-                                  "<extra></extra>",
+                    hovertemplate=base_hover,
                 ),
                 row=row, col=1,
             )
+            
     except Exception as e:
         logger.warning(f"Main chart error: {e}")
 
@@ -720,23 +896,45 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
             borderwidth=1,
             font=dict(size=11)
         ),
-        hovermode="x unified",
+        # === FIREANT-STYLE INTERACTIONS ===
+        hovermode="x unified",  # Crosshair theo trục X
         hoverlabel=dict(
-            bgcolor="rgba(20, 20, 20, 0.97)",
+            bgcolor="rgba(15, 23, 42, 0.95)",
             font_size=12,
-            font_color="white",
-            bordercolor="rgba(0, 230, 118, 0.5)",
-            font_family="Arial"
+            font_color="#E0E0E0",
+            bordercolor="rgba(34, 197, 94, 0.6)",
+            font_family="Arial, sans-serif",
+            namelength=-1,  # Hiển thị đầy đủ tên
         ),
+        # Smooth zoom và pan
+        dragmode="pan",  # Default là pan (kéo để di chuyển) giống FireAnt
+        selectdirection="h",  # Chọn theo chiều ngang
+        
+        # Modebar (thanh công cụ) chuyên nghiệp
+        modebar=dict(
+            bgcolor="rgba(15, 23, 42, 0.8)",
+            color="#94a3b8",
+            activecolor="#22c55e",
+            orientation="v",  # Dọc bên phải
+        ),
+        
+        # Smooth transitions và animations
+        transition=dict(
+            duration=300,  # 300ms smooth transition
+            easing="cubic-in-out"
+        ),
+        
         margin=dict(l=55, r=45, t=120, b=70),
         xaxis_rangeslider_visible=False,
-        dragmode="zoom",
+        
+        # Spike lines (đường kẻ crosshair) giống FireAnt
+        spikedistance=-1,  # Hiển thị spike từ mọi khoảng cách
     )
     
     fig.update_xaxes(fixedrange=False)
     fig.update_yaxes(fixedrange=False)
     
-    # Trục Y
+    # Trục Y với spike lines
     for i in range(1, total_rows + 1):
         y_title = fig.layout.annotations[i-1].text 
         
@@ -748,7 +946,14 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
             titlefont=dict(size=12, color="#B0BEC5"),
             tickfont=dict(size=10),
             row=i, col=1,
-            zeroline=False if i == 1 else True
+            zeroline=False if i == 1 else True,
+            # === SPIKE LINES (Crosshair ngang) giống FireAnt ===
+            showspikes=True,
+            spikemode="across",
+            spikesnap="cursor",
+            spikethickness=1,
+            spikecolor="#22c55e",
+            spikedash="solid",
         )
         
         if i == 1:
@@ -762,11 +967,11 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
         elif y_title == "Volume":
             fig.update_yaxes(rangemode='tozero', row=i, col=1)
     
-    # FIXED: Trục X - Cải thiện logic
+    # FIXED: Trục X - Cải thiện logic + Spike lines giống FireAnt
     for i in range(1, total_rows + 1):
         show_labels = (i == total_rows)
         
-        # Cấu hình cơ bản cho tất cả subplot
+        # Cấu hình cơ bản cho tất cả subplot với spike lines
         fig.update_xaxes(
             showgrid=True, 
             gridcolor=grid_color,
@@ -780,6 +985,13 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
             titlefont=dict(size=12, color="#B0BEC5") if i == total_rows else None,
             tickfont=dict(size=9) if show_labels else None,
             type="date",
+            # === SPIKE LINES (Crosshair) giống FireAnt ===
+            showspikes=True,
+            spikemode="across",
+            spikesnap="cursor",
+            spikethickness=1,
+            spikecolor="#22c55e",
+            spikedash="solid",
             # FIXED: Chỉ loại bỏ cuối tuần nếu data dày đặc
             rangebreaks=[
                 dict(bounds=["sat", "mon"])
@@ -801,7 +1013,10 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
                 dict(count=1, label="1 tháng", step="month", stepmode="backward"),
                 dict(count=3, label="3 tháng", step="month", stepmode="backward"),
                 dict(count=6, label="6 tháng", step="month", stepmode="backward"),
+                dict(count=9, label="9 tháng", step="month", stepmode="backward"),
                 dict(count=1, label="1 năm", step="year", stepmode="backward"),
+                dict(count=2, label="2 năm", step="year", stepmode="backward"),
+                dict(count=5, label="5 năm", step="year", stepmode="backward"),
                 dict(step="all", label="Tất cả")
             ]),
             bgcolor='rgba(30, 30, 30, 0.95)',

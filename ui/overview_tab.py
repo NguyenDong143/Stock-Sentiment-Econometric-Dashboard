@@ -7,6 +7,24 @@ from utils import indicators
 
 
 # ======================================================
+# 🔧 CACHED VNSTOCK HELPER - Lazy load và cache để tối ưu load time
+# ======================================================
+@st.cache_resource(show_spinner=False)
+def _get_vnstock_class():
+    """Lazy load Vnstock class một lần duy nhất"""
+    import warnings
+    warnings.filterwarnings('ignore')
+    from vnstock import Vnstock
+    return Vnstock
+
+
+def _get_vnstock_instance(ticker, source='VCI'):
+    """Tạo Vnstock stock instance với ticker đã cho"""
+    Vnstock = _get_vnstock_class()
+    return Vnstock().stock(symbol=ticker, source=source)
+
+
+# ======================================================
 # 📘 OVERVIEW TAB
 # ======================================================
 def render(ticker: str = None):
@@ -418,10 +436,7 @@ def render(ticker: str = None):
             st.markdown("### 📊 Bảng cân đối kế toán (Balance Sheet)")
             
             try:
-                import warnings
-                warnings.filterwarnings('ignore')
-                from vnstock import Vnstock
-                stock = Vnstock().stock(symbol=ticker, source='VCI')
+                stock = _get_vnstock_instance(ticker, 'VCI')
                 
                 # Lấy balance sheet
                 balance_sheet = stock.finance.balance_sheet(period='quarter', lang='vi')
@@ -446,10 +461,7 @@ def render(ticker: str = None):
             st.markdown("### 💵 Báo cáo kết quả kinh doanh (Income Statement)")
             
             try:
-                import warnings
-                warnings.filterwarnings('ignore')
-                from vnstock import Vnstock
-                stock = Vnstock().stock(symbol=ticker, source='VCI')
+                stock = _get_vnstock_instance(ticker, 'VCI')
                 
                 # Lấy income statement
                 income_statement = stock.finance.income_statement(period='quarter', lang='vi')
@@ -472,10 +484,7 @@ def render(ticker: str = None):
             st.markdown("### 💸 Báo cáo lưu chuyển tiền tệ (Cash Flow Statement)")
             
             try:
-                import warnings
-                warnings.filterwarnings('ignore')
-                from vnstock import Vnstock
-                stock = Vnstock().stock(symbol=ticker, source='VCI')
+                stock = _get_vnstock_instance(ticker, 'VCI')
                 
                 # Lấy cash flow statement
                 cash_flow = stock.finance.cash_flow(period='quarter', lang='vi')
@@ -498,10 +507,7 @@ def render(ticker: str = None):
             st.markdown("### 📈 Chỉ số tài chính (Financial Ratios)")
             
             try:
-                import warnings
-                warnings.filterwarnings('ignore')
-                from vnstock import Vnstock
-                stock = Vnstock().stock(symbol=ticker, source='VCI')
+                stock = _get_vnstock_instance(ticker, 'VCI')
                 
                 # Lấy financial ratios
                 ratios = stock.finance.ratio(period='quarter', lang='vi')

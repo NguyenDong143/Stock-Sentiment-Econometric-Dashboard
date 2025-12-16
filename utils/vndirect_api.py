@@ -5,6 +5,7 @@ Optimized for Streamlit Dashboard & Chatbot
 
 import time
 import requests
+import streamlit as st
 from typing import Dict, List, Optional
 from datetime import datetime
 
@@ -247,21 +248,18 @@ class VNDirectAPI:
         color = "🟢" if change > 0 else "🔴" if change < 0 else "🟡"
 
         return f"""
-{color} **{d['symbol']}**  
-💰 Giá: {d['price']:,}   ({d['change']:+,} | {d['change_percent']:+.2f}%)  
-📊 KL: {d['volume']:,} — High: {d['high']:,} — Low: {d['low']:,}  
-🔵 TC: {d['ref_price']:,} — 🔴 Sàn: {d['floor_price']:,} — 🟣 Trần: {d['ceiling_price']:,}  
+{color} **{d['symbol']}**  
+💰 Giá: {d['price']:,}   ({d['change']:+,} | {d['change_percent']:+.2f}%)  
+📊 KL: {d['volume']:,} — High: {d['high']:,} — Low: {d['low']:,}  
+🔵 TC: {d['ref_price']:,} — 🔴 Sàn: {d['floor_price']:,} — 🟣 Trần: {d['ceiling_price']:,}  
 🕒 {d['time']}
         """.strip()
 
 
 # ============================================================
-# SINGLETON (Giữ nguyên)
+# SINGLETON với @st.cache_resource để tối ưu load time
 # ============================================================
-_api_instance = None
-
+@st.cache_resource(show_spinner=False)
 def get_vndirect_api() -> VNDirectAPI:
-    global _api_instance
-    if _api_instance is None:
-        _api_instance = VNDirectAPI()
-    return _api_instance
+    """Cached VNDirect API instance - chỉ khởi tạo 1 lần"""
+    return VNDirectAPI()

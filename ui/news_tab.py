@@ -45,7 +45,6 @@ VN_STOCK_KEYWORDS = [
     "vietstock", "doanh nghiệp niêm yết", "cổ phiếu",
     "ssi", "vcb", "vic", "vnm", "tcbs", "vcbs"
 ]
-
 # Keywords để loại trừ tin tức không liên quan
 EXCLUDED_TOPIC_KEYWORDS = [
     "crypto", "bitcoin", "ethereum", "blockchain", "forex", "fed",
@@ -53,7 +52,6 @@ EXCLUDED_TOPIC_KEYWORDS = [
     "goldman sachs", "chứng khoán mỹ", "trái phiếu mỹ",
     "tiền ảo", "tiền điện tử"
 ]
-
 # RSS Feed URLs
 RSS_FEEDS = {
     "vnexpress": ["https://vnexpress.net/rss/kinh-doanh.rss"],

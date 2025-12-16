@@ -127,6 +127,18 @@ custom_ticker = st.sidebar.text_input(
 if custom_ticker.strip():
     ticker = custom_ticker.strip().upper()
 
+# ==============================
+# 📈 CHỌN LOẠI BIỂU ĐỒ (Hiển thị nổi bật)
+# ==============================
+st.sidebar.markdown("### 📈 Loại biểu đồ")
+st.sidebar.selectbox(
+    "Chart Type:",
+    ["🕯️ Candle", "📈 Line", "📊 Bar", "🔲 Step", "🏔️ Mountain", "🌊 Wave", "⚫ Scatter", "📉 Histogram"],
+    index=0,
+    key="chart_type"
+)
+st.sidebar.checkbox("Hiển thị Volume", value=True, key="show_volume")
+
 # Chọn loại dữ liệu
 st.sidebar.markdown("### 📰 Data Type")
 data_type = st.sidebar.radio(
@@ -152,10 +164,6 @@ time_period = st.sidebar.radio(
 # ==============================
 st.sidebar.markdown("---")
 st.sidebar.markdown("### 📊 Chỉ số kỹ thuật")
-
-with st.sidebar.expander("⚙️ Cấu hình biểu đồ", expanded=False):
-    st.selectbox("Loại biểu đồ", ["Candle", "Line"], index=0, key="chart_type")
-    st.checkbox("Hiển thị Volume", value=True, key="show_volume")
 
 with st.sidebar.expander("📈 Moving Averages", expanded=False):
     st.checkbox("SMA 20", value=True, key="show_sma20")

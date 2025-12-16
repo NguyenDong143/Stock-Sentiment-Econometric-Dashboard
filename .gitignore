@@ -1,0 +1,73 @@
+# ===========================
+# 🔐 SENSITIVE FILES - CRITICAL!
+# ===========================
+config/settings.py
+*.env
+.env
+.env.local
+.env.*.local
+
+# ===========================
+# 🐍 PYTHON
+# ===========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# ===========================
+# 🌐 VIRTUAL ENVIRONMENTS
+# ===========================
+venv/
+.venv/
+ENV/
+env/
+.env/
+
+# ===========================
+# 📊 JUPYTER & IDE
+# ===========================
+.ipynb_checkpoints
+*.ipynb
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ===========================
+# 📁 CACHE & LOGS
+# ===========================
+*.log
+app.log
+.cache/
+.streamlit/secrets.toml
+
+# ===========================
+# 💾 DATA (optional - uncomment if needed)
+# ===========================
+# data/prices/*.csv
+# data/chat_history/
+
+# ===========================
+# 🖥️ OS SPECIFIC
+# ===========================
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -2024,3 +2024,35 @@ google.api_core.exceptions.PermissionDenied: 403 Your API key was reported as le
 2025-11-29 16:47:18,325 - WARNING - '(ReadTimeoutError("HTTPSConnectionPool(host='huggingface.co', port=443): Read timed out. (read timeout=10)"), '(Request ID: de5f07b6-9732-4aa0-84dd-8f9d8d242594)')' thrown while requesting HEAD https://huggingface.co/api/resolve-cache/models/wonrax/phobert-base-vietnamese-sentiment/9076a5896971b5d551588fe8a51c722c89731d36/config.json
 2025-11-29 16:47:18,326 - WARNING - Retrying in 1s [Retry 1/5].
 2025-11-29 16:53:17,248 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-06 20:59:16,697 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-06 20:59:16,727 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-06 20:59:55,886 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-06 21:34:13,950 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-06 21:53:22,040 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-06 22:15:18,398 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-06 22:16:41,047 - INFO - \u2705 \u0110ã t\u1ea3i 32 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-06 22:16:41,049 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 32 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-06 22:40:18,600 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-06 23:11:16,853 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-06 23:11:16,890 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-06 23:11:27,106 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-07 00:24:10,247 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-07 00:24:10,466 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-07 00:25:24,155 - INFO - Successfully fetched 6 articles from vnexpress
+2025-12-07 00:30:48,717 - INFO - Successfully fetched 7 articles from vnexpress
+2025-12-07 00:30:55,980 - INFO - \u2705 \u0110ã t\u1ea3i 32 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-07 00:30:55,981 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 32 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-07 00:31:25,662 - INFO - Không ph\u1ea3i là mã ch\u1ee9ng khoán, thông tin công ty và tài chính không kh\u1ea3 d\u1ee5ng.
+2025-12-07 00:31:26,137 - INFO - \u2705 \u0110ã t\u1ea3i 1981 ngày d\u1eef li\u1ec7u cho VNINDEX t\u1eeb Vnstock
+2025-12-07 00:31:27,244 - INFO - \U0001f4be \u0110ã l\u01b0u 33 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
+2025-12-16 14:21:19,744 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 14:21:19,771 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 14:22:28,768 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:30:30,901 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:32:03,920 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 14:32:03,953 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 14:32:26,438 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:39:15,829 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:44:51,417 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 14:44:51,435 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 14:45:44,963 - INFO - Successfully fetched 10 articles from vnexpress

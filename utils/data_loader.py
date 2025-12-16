@@ -4,7 +4,7 @@ import pandas as pd
 import streamlit as st
 import logging
 # import investpy # ĐÃ BỊ LOẠI BỎ
-import yfinance as yf 
+# import yfinance as yf  # REMOVED - không sử dụng, tốn thời gian load
 from typing import Optional, Dict
 from utils.vndirect_api import get_vndirect_api 
 
