@@ -19,7 +19,7 @@ logger = logging.getLogger(__name__)
 # ==========================================================
 # 📊 CONFIGURATION CONSTANTS
 # ==========================================================
-DEFAULT_HEIGHT = 700
+DEFAULT_HEIGHT = 900
 DEFAULT_VISIBLE_DAYS = 60
 MIN_DATA_POINTS = 2
 MAX_RENDER_POINTS = 2000
@@ -884,7 +884,7 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
         title=dict(text=title, x=0.5, font=dict(color="#E0E0E0", size=20, weight=600)),
         paper_bgcolor=page_background_color,
         plot_bgcolor=page_background_color,
-        font=dict(color="#E0E0E0", size=11),
+        font=dict(color="#E0E0E0", size=12),
         legend=dict(
             orientation="h", 
             yanchor="top", 
@@ -924,7 +924,7 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
             easing="cubic-in-out"
         ),
         
-        margin=dict(l=55, r=45, t=120, b=70),
+        margin=dict(l=55, r=45, t=80, b=40),
         xaxis_rangeslider_visible=False,
         
         # Spike lines (đường kẻ crosshair) giống FireAnt
@@ -943,7 +943,7 @@ def _update_dark_layout(fig, title, height, total_rows, data, default_visible_da
             gridcolor=grid_color,
             showticklabels=True,
             title_text=y_title,
-            titlefont=dict(size=12, color="#B0BEC5"),
+            titlefont=dict(size=13, color="#B0BEC5"),
             tickfont=dict(size=10),
             row=i, col=1,
             zeroline=False if i == 1 else True,

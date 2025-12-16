@@ -1,58 +1,45 @@
 ﻿"""
 Chatbot Services - Portfolio AI Assistant using Google Gemini API
-WITH STREAMING SUPPORT + VNDirect Timeout Handling + Symbol Filtering
+WITH STREAMING SUPPORT + VNDirect Timeout Handling + Symbol Filtering + Multi-API Key Rotation
+OPTIMIZED: Concurrent data fetching, Enhanced prompts, Few-shot learning
 """
 
 import google.generativeai as genai
 from google.generativeai import types
-from typing import Optional, List, Dict, Iterator
+from typing import Optional, List, Dict, Iterator, Tuple
 import re
 import sys
 import os
 import logging
 import streamlit as st
+import concurrent.futures
+from functools import lru_cache
 
 # Import VNDIRECT API và History Manager
-# (Đảm bảo đường dẫn import này hoạt động trong môi trường của bạn)
-# sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.vndirect_api import get_vndirect_api
 from utils.chat_history_manager import ChatHistoryManager
 from utils.data_loader import load_price_data, load_sentiment_data, load_realtime_price_quote
 
 logger = logging.getLogger(__name__)
 
+# ====================================================================
+# CONSTANTS FOR OPTIMIZATION
+# ====================================================================
+CACHE_TTL_REALTIME = 30      # Cache giá realtime 30s
+CACHE_TTL_TECHNICAL = 600    # Cache phân tích kỹ thuật 10 phút
+CACHE_TTL_SENTIMENT = 600    # Cache sentiment 10 phút
+MAX_CONCURRENT_WORKERS = 4   # Số luồng song song tối đa
+DATA_FETCH_TIMEOUT = 5       # Timeout cho mỗi data fetch (giây)
+
 
 @st.cache_resource(show_spinner=False)
 def _initialize_genai_model(api_key: str) -> str:
-    """Cache việc tìm và khởi tạo Gemini model"""
+    """Cache việc khởi tạo Gemini model - ULTRA FAST (No Network Check)"""
     genai.configure(api_key=api_key)
     
-    model_list = [
-        "gemini-2.5-flash",
-        "gemini-2.0-flash",
-        "gemini-flash-latest",
-        "gemini-pro-latest",
-        "gemini-2.5-pro",
-    ]
-    
-    for name in model_list:
-        try:
-            test_model = genai.GenerativeModel(name)
-            test_response = test_model.generate_content(
-                "hello",
-                generation_config=genai.types.GenerationConfig(
-                    temperature=0.7,
-                    max_output_tokens=10
-                )
-            )
-            
-            if hasattr(test_response, 'text'):
-                # Chatbot model cached successfully
-                return name
-        except Exception:
-            continue
-    
-    raise ValueError("❌ Không tìm thấy model Gemini khả dụng")
+    # Trả về model name ngay lập tức, không check network
+    # Gemini 1.5 Flash là lựa chọn tốt nhất hiện tại cho tốc độ/giá/performance
+    return "gemini-1.5-flash"
 
 
 class PortfolioChatbot:
@@ -74,7 +61,7 @@ class PortfolioChatbot:
         if auto_load:
             self._load_history_from_file()
 
-        # SYSTEM PROMPT for Vietnamese stock market
+        # SYSTEM PROMPT for Vietnamese stock market - ENHANCED với Few-Shot Examples
         self.system_prompt = """Bạn là chuyên gia phân tích thị trường chứng khoán Việt Nam với khả năng:
 
 1. **TỔNG QUAN THỊ TRƯỜNG**: Phân tích VNINDEX, HNXINDEX, thanh khoản, xu hướng
@@ -84,20 +71,31 @@ class PortfolioChatbot:
 5. **So sánh ngành**: So sánh hiệu suất giữa các mã cùng ngành
 6. **Tư vấn chiến lược**: Phân tích rủi ro/cơ hội dựa trên dữ liệu
 
-**LƯU Ý QUAN TRỌNG**: 
-- Trả lời ngắn gọn (2-4 câu), dễ hiểu
+**===== VÍ DỤ CÂU TRẢ LỜI CHUẨN =====**
+
+**Q: Thị trường hôm nay thế nào?**
+A: 🔺 VNINDEX tăng 12.5 điểm (+1.02%) lên 1,235.50 điểm. Thanh khoản đạt 18,500 tỷ đồng. Blue chips dẫn dắt: VCB +2.1%, BID +1.8%, HPG +1.5%. Xu hướng tích cực ngắn hạn với lực cầu mạnh.
+
+**Q: RSI VCB bao nhiêu?**
+A: RSI(14) của VCB đang ở mức 65.3 - vùng trung tính. Chưa quá mua (<70), có thể tiếp tục tăng nếu vượt 70. Hỗ trợ: 92,000 | Kháng cự: 98,000.
+
+**Q: So sánh VCB và BID?**
+A: 📊 30 ngày qua: VCB +5.2% vs BID +3.8%. VCB vượt trội với RSI (65) > BID (58). VCB đang mạnh hơn về momentum, phù hợp xu hướng tăng ngắn hạn.
+
+**===== QUY TẮC TRẢ LỜI =====**
+- Trả lời ngắn gọn (2-4 câu), DỄ HIỂU, có số liệu cụ thể
 - LUÔN dựa vào dữ liệu context được cung cấp (nếu có)
-- Nếu có data về blue chips, hãy phân tích xu hướng chung từ đó
-- Nếu được hỏi về thị trường mà không có VNINDEX realtime, hãy phân tích xu hướng từ nhóm blue chips (VCB, BID, HPG, VHM, FPT)
+- Nếu có data về blue chips, phân tích xu hướng chung từ đó
 - KHÔNG nói "Tôi là AI không thể cung cấp thông tin realtime" - Hãy phân tích dữ liệu được cung cấp
 - KHÔNG đưa ra khuyến nghị mua/bán cụ thể
-- Phân tích khách quan dựa trên số liệu, không khẳng định tương lai"""
+- Phân tích khách quan dựa trên số liệu, không khẳng định tương lai
+- Sử dụng emoji phù hợp để tăng tính trực quan (🔺🔻📊📈📉)"""
 
         self.safety_settings = [
-            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_NONE"},
-            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_NONE"},
-            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_NONE"},
-            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_NONE"},
+            {"category": "HARM_CATEGORY_HARASSMENT", "threshold": "BLOCK_ONLY_HIGH"},
+            {"category": "HARM_CATEGORY_HATE_SPEECH", "threshold": "BLOCK_ONLY_HIGH"},
+            {"category": "HARM_CATEGORY_SEXUALLY_EXPLICIT", "threshold": "BLOCK_ONLY_HIGH"},
+            {"category": "HARM_CATEGORY_DANGEROUS_CONTENT", "threshold": "BLOCK_ONLY_HIGH"},
         ]
 
     # ====================================================================
@@ -155,14 +153,14 @@ class PortfolioChatbot:
                 temperature=0.7,
                 top_p=0.85,
                 top_k=30,
-                max_output_tokens=200,  # Giảm xuống 200 cho response nhanh hơn
+                max_output_tokens=800,  # Tăng lên 800 để response không bị cắt
             )
         )
     # ====================================================================
-    # STREAMING RESPONSE
+    # STREAMING RESPONSE - OPTIMIZED với Concurrent Data Fetching
     # ====================================================================
     def generate_response_stream(self, user_message: str, context: Optional[str] = None) -> Iterator[str]:
-        """Generate streaming response với cache để tăng tốc"""
+        """Generate streaming response với concurrent data fetching để tăng tốc"""
         try:
             detected_symbols = self._extract_stock_symbols(user_message)
             
@@ -172,8 +170,8 @@ class PortfolioChatbot:
             # KIỂM TRA CÂU HỎI TỔNG QUAN THỊ TRƯỜNG
             market_data_fetched = False
             if self._is_market_overview_query(user_message) and not detected_symbols:
-                # Lấy tổng quan thị trường với retry
-                for retry in range(2):  # Thử 2 lần
+                # Lấy tổng quan thị trường với retry (giữ nguyên logic cũ cho market overview)
+                for retry in range(2):
                     try:
                         api = get_vndirect_api()
                         overview = api.get_market_overview()
@@ -204,14 +202,14 @@ class PortfolioChatbot:
                                         icon = "🟢" if data['change'] > 0 else "🔴" if data['change'] < 0 else "🟡"
                                         movers += f"{icon} {symbol}: {data['price']:,.0f} ({data['change_percent']:+.2f}%)\n"
                                 context_blocks.append(movers)
-                            break  # Thành công, thoát vòng lặp
+                            break
                     except Exception as e:
                         logger.warning(f"Lần thử {retry+1} lấy market overview thất bại: {e}")
                         if retry == 0:
                             import time
-                            time.sleep(1)  # Đợi 1s trước khi retry
+                            time.sleep(0.5)  # Giảm từ 1s xuống 0.5s
                 
-                # FALLBACK: Nếu không lấy được data sau 2 lần thử
+                # FALLBACK: Nếu không lấy được data
                 if not market_data_fetched:
                     fallback_msg = """⚠️ **Tạm thời không kết nối được nguồn dữ liệu realtime**
 
@@ -223,22 +221,38 @@ Bạn có thể:
                     yield fallback_msg
                     return
             
-            # 1. Giá realtime cho mã cụ thể
+            # ===== CONCURRENT DATA FETCHING cho mã cụ thể =====
             if detected_symbols:
-                realtime_prices_markdown = self._get_realtime_prices(tuple(detected_symbols))
-                if realtime_prices_markdown:
-                    context_blocks.append(f"📈 GIÁ REALTIME:\n{realtime_prices_markdown}")
+                primary_symbol = detected_symbols[0]
                 
-                # 2. Phân tích kỹ thuật (chỉ mã đầu tiên)
-                if len(detected_symbols) > 0:
-                    tech_analysis = self._get_technical_analysis(detected_symbols[0])
-                    if tech_analysis:
-                        context_blocks.append(tech_analysis)
+                # Sử dụng ThreadPoolExecutor để fetch song song
+                with concurrent.futures.ThreadPoolExecutor(max_workers=MAX_CONCURRENT_WORKERS) as executor:
+                    # Submit tất cả tasks song song
+                    futures = {
+                        'realtime': executor.submit(self._get_realtime_prices, tuple(detected_symbols)),
+                        'technical': executor.submit(self._get_technical_analysis, primary_symbol),
+                        'sentiment': executor.submit(self._get_sentiment_summary, primary_symbol),
+                        'signals': executor.submit(self._get_trading_signals, primary_symbol),
+                    }
                     
-                    # 3. Sentiment analysis
-                    sentiment_summary = self._get_sentiment_summary(detected_symbols[0])
-                    if sentiment_summary:
-                        context_blocks.append(sentiment_summary)
+                    # Thu thập kết quả với timeout
+                    results = {}
+                    for key, future in futures.items():
+                        try:
+                            results[key] = future.result(timeout=DATA_FETCH_TIMEOUT)
+                        except (concurrent.futures.TimeoutError, Exception) as e:
+                            logger.warning(f"Concurrent fetch {key} thất bại: {e}")
+                            results[key] = ""
+                
+                # Thêm kết quả vào context
+                if results.get('realtime'):
+                    context_blocks.append(f"📈 GIÁ REALTIME:\n{results['realtime']}")
+                if results.get('technical'):
+                    context_blocks.append(results['technical'])
+                if results.get('sentiment'):
+                    context_blocks.append(results['sentiment'])
+                if results.get('signals'):
+                    context_blocks.append(results['signals'])
             
             realtime_prices_markdown = "\n\n".join(context_blocks) if context_blocks else None
             
@@ -281,16 +295,37 @@ Bạn có thể:
             full_text = ""
 
             for chunk in response:
-                if hasattr(chunk, "text") and chunk.text:
+                # Kiểm tra xem chunk có candidates không
+                if hasattr(chunk, 'candidates') and chunk.candidates:
+                    candidate = chunk.candidates[0]
+                    # Kiểm tra finish_reason - SAFETY means blocked
+                    if hasattr(candidate, 'finish_reason'):
+                        finish_reason = str(candidate.finish_reason)
+                        if 'SAFETY' in finish_reason.upper():
+                            yield "⚠️ Câu trả lời bị chặn bởi bộ lọc an toàn. Vui lòng thử câu hỏi khác."
+                            return
+                    
+                    # Lấy text từ parts
+                    if hasattr(candidate, 'content') and hasattr(candidate.content, 'parts'):
+                        for part in candidate.content.parts:
+                            if hasattr(part, 'text') and part.text:
+                                full_text += part.text
+                                yield part.text
+                elif hasattr(chunk, "text") and chunk.text:
                     full_text += chunk.text
                     yield chunk.text
                 elif hasattr(chunk, "prompt_feedback"):
-                    # Xử lý blocked response với thông tin chi tiết
-                    block_reason = "unknown"
+                    # Kiểm tra prompt bị block
                     if hasattr(chunk.prompt_feedback, "block_reason"):
                         block_reason = str(chunk.prompt_feedback.block_reason)
-                    yield f"⚠️ Response bị chặn bởi bộ lọc an toàn Google ({block_reason}). Vui lòng thử câu hỏi khác."
-                    return
+                        if block_reason and block_reason != "BLOCK_REASON_UNSPECIFIED":
+                            yield f"⚠️ Prompt bị chặn: {block_reason}. Vui lòng thử câu hỏi khác."
+                            return
+            
+            # Nếu không có text nào được tạo
+            if not full_text:
+                yield "⚠️ Không nhận được phản hồi từ AI. Vui lòng thử lại."
+                return
 
             if full_text:
                 self.chat_history.append({
@@ -304,13 +339,34 @@ Bạn có thể:
             error_str = str(e)
             logger.error(f"Lỗi streaming: {e}", exc_info=True)
             
+            # Xử lý lỗi response bị block (Invalid operation)
+            if "Invalid operation" in error_str and "response.text" in error_str:
+                yield "⚠️ Phản hồi bị chặn bởi bộ lọc an toàn. Vui lòng thử câu hỏi khác hoặc diễn đạt rõ ràng hơn."
             # Xử lý lỗi API key cụ thể
-            if "403" in error_str and "leaked" in error_str.lower():
+            elif "403" in error_str and "leaked" in error_str.lower():
                 yield "❌ **API Key đã bị vô hiệu hóa!**\n\nAPI key của bạn đã bị Google phát hiện leaked. Vui lòng:\n1. Tạo key mới tại: https://makersuite.google.com/app/apikey\n2. Cập nhật file `config/settings.py`\n3. Restart app"
-            elif "403" in error_str:
-                yield f"❌ **Lỗi xác thực API (403)**\n\nVui lòng kiểm tra API key trong `config/settings.py`"
-            elif "quota" in error_str.lower() or "429" in error_str:
-                yield "⚠️ **Đã hết quota API**\n\nVui lòng đợi 1 phút hoặc sử dụng API key khác."
+            elif "403" in error_str or "quota" in error_str.lower() or "429" in error_str:
+                # Thử xoay vòng API key
+                try:
+                    key_manager = get_api_key_manager()
+                    if key_manager and key_manager.available_keys_count > 1:
+                        if key_manager.mark_current_failed():
+                            # Thông báo đang chuyển key
+                            status = key_manager.get_status()
+                            yield f"🔄 **Đang chuyển sang API key #{status['current_key_index']}/{status['total_keys']}...**\n\nVui lòng thử lại câu hỏi!"
+                            # Cập nhật API key cho genai
+                            genai.configure(api_key=key_manager.current_key)
+                            return
+                        else:
+                            yield "❌ **Tất cả API keys đã hết quota!**\n\nVui lòng đợi 1 phút hoặc thêm API key mới vào `config/settings.py`"
+                            return
+                    else:
+                        yield "⚠️ **Đã hết quota API**\n\nVui lòng đợi 1 phút hoặc thêm thêm API key vào `GEMINI_API_KEYS` trong `config/settings.py`"
+                except Exception as key_error:
+                    logger.error(f"Lỗi xoay vòng key: {key_error}")
+                    yield "⚠️ **Đã hết quota API**\n\nVui lòng đợi 1 phút hoặc sử dụng API key khác."
+            elif "finish_reason" in error_str.lower() or "safety" in error_str.lower():
+                yield "⚠️ Phản hồi bị chặn bởi bộ lọc an toàn. Vui lòng thử câu hỏi khác."
             else:
                 yield f"⚠️ Lỗi: {error_str[:150]}"
 
@@ -445,7 +501,7 @@ Bạn có thể:
     # ====================================================================
     # MARKET DATA ANALYSIS TOOLS FOR CHATBOT
     # ====================================================================
-    @st.cache_data(ttl=300, show_spinner=False)
+    @st.cache_data(ttl=CACHE_TTL_TECHNICAL, show_spinner=False)
     def _get_technical_analysis(_self, symbol: str) -> str:
         """Lấy phân tích kỹ thuật cơ bản cho chatbot"""
         try:
@@ -490,7 +546,7 @@ Bạn có thể:
             logger.error(f"Lỗi phân tích kỹ thuật {symbol}: {e}")
             return ""
     
-    @st.cache_data(ttl=300, show_spinner=False)
+    @st.cache_data(ttl=CACHE_TTL_SENTIMENT, show_spinner=False)
     def _get_sentiment_summary(_self, symbol: str) -> str:
         """Lấy tóm tắt cảm xúc tin tức"""
         try:
@@ -524,9 +580,60 @@ Bạn có thể:
             return ""
 
     # ====================================================================
+    # TRADING SIGNALS - Tín hiệu giao dịch
+    # ====================================================================
+    @st.cache_data(ttl=CACHE_TTL_TECHNICAL, show_spinner=False)
+    def _get_trading_signals(_self, symbol: str) -> str:
+        """Lấy tín hiệu giao dịch kỹ thuật"""
+        try:
+            df = load_price_data(symbol)
+            if df.empty or len(df) < 50:
+                return ""
+            
+            signals = []
+            
+            # RSI Signal
+            delta = df['close'].diff()
+            gain = (delta.where(delta > 0, 0)).rolling(window=14).mean()
+            loss = (-delta.where(delta < 0, 0)).rolling(window=14).mean()
+            rs = gain / loss
+            rsi = 100 - (100 / (1 + rs))
+            current_rsi = rsi.iloc[-1]
+            
+            if current_rsi < 30:
+                signals.append("🟢 RSI < 30: Tín hiệu MUA (quá bán)")
+            elif current_rsi > 70:
+                signals.append("🔴 RSI > 70: Tín hiệu BÁN (quá mua)")
+            
+            # SMA Signal
+            sma_20 = df['close'].rolling(20).mean().iloc[-1]
+            sma_50 = df['close'].rolling(50).mean().iloc[-1]
+            current_price = df['close'].iloc[-1]
+            
+            if current_price > sma_20 > sma_50:
+                signals.append("🟢 Golden Cross: Xu hướng TĂNG")
+            elif current_price < sma_20 < sma_50:
+                signals.append("🔴 Death Cross: Xu hướng GIẢM")
+            
+            # Volume Signal
+            avg_volume = df['volume'].rolling(20).mean().iloc[-1]
+            current_volume = df['volume'].iloc[-1]
+            if current_volume > avg_volume * 1.5:
+                signals.append("📈 Volume đột biến: Cần theo dõi")
+            
+            if not signals:
+                signals.append("🟡 Không có tín hiệu rõ ràng")
+            
+            return f"🎯 TÍN HIỆU {symbol}:\n" + "\n".join(signals)
+            
+        except Exception as e:
+            logger.error(f"Lỗi get trading signals {symbol}: {e}")
+            return ""
+
+    # ====================================================================
     # REALTIME VNDirect PRICES WITH TIMEOUT HANDLING
     # ====================================================================
-    @st.cache_data(ttl=300, show_spinner=False)
+    @st.cache_data(ttl=CACHE_TTL_REALTIME, show_spinner=False)
     def _get_realtime_prices(_self, symbols_tuple) -> str:
         """
         Fetch realtime prices, skip timeout error silently.

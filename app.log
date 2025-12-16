@@ -2157,3 +2157,1089 @@ google.api_core.exceptions.PermissionDenied: 403 Your API key was reported as le
 2025-12-16 15:09:34,870 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
 2025-12-16 15:09:34,870 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
 2025-12-16 15:22:48,624 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:28:49,690 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:28:49,706 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 15:29:13,630 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:32:36,516 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:32:36,532 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 15:33:00,869 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:34:19,312 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 15:34:19,312 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:36:51,103 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:36:51,138 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 15:37:14,510 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:37:39,644 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 15:37:39,644 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:39:39,392 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:39:39,427 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 15:39:59,590 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:41:21,266 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 15:41:21,266 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:42:16,374 - ERROR - L\u1ed7i streaming: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 284, in generate_response_stream
+    if hasattr(chunk, "text") and chunk.text:
+       ~~~~~~~^^^^^^^^^^^^^^^
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\types\generation_types.py", line 482, in text
+    raise ValueError(msg)
+ValueError: Invalid operation: The `response.text` quick accessor requires the response to contain a valid `Part`, but none were returned. The candidate's [finish_reason](https://ai.google.dev/api/generate-content#finishreason) is 2.
+2025-12-16 15:54:13,111 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:54:13,130 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 15:54:46,259 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:55:26,738 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 15:55:26,740 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:55:58,695 - INFO - \U0001f4be \u0110ã l\u01b0u 34 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
+2025-12-16 15:56:58,783 - INFO - \U0001f4be \u0110ã l\u01b0u 35 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
+2025-12-16 15:59:56,162 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:59:56,180 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 16:00:30,949 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 16:01:20,705 - INFO - \u2705 \u0110ã t\u1ea3i 35 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:01:20,707 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 35 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:02:10,192 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 16:02:10,258 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 16:02:51,590 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 16:03:42,546 - INFO - \u2705 \u0110ã t\u1ea3i 35 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:03:42,546 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 35 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:04:10,347 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 48.902438957s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 48
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 266, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 48.902438957s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 48
+}
+]
+2025-12-16 16:09:41,247 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 16:09:41,276 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 16:10:23,991 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 16:10:48,709 - INFO - \u2705 APIKeyManager kh\u1edfi t\u1ea1o v\u1edbi 3 key(s)
+2025-12-16 16:10:49,046 - INFO - \u2705 \u0110ã t\u1ea3i 35 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:10:49,046 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 35 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:11:12,972 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 46.277490291s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 46
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 265, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 46.277490291s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 46
+}
+]
+2025-12-16 16:12:45,315 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 16:12:45,333 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 16:13:11,572 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 16:13:41,453 - INFO - \u2705 APIKeyManager kh\u1edfi t\u1ea1o v\u1edbi 3 key(s)
+2025-12-16 16:13:41,752 - INFO - \u2705 \u0110ã t\u1ea3i 35 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:13:41,753 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 35 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:14:05,996 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 53.248588122s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 53
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 265, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 53.248588122s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 53
+}
+]
+2025-12-16 16:14:06,010 - WARNING - \u26a0\ufe0f API key #1 failed. \u0110ang chuy\u1ec3n...
+2025-12-16 16:14:06,010 - INFO - \u2705 Chuy\u1ec3n sang API key #2
+2025-12-16 16:14:13,383 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 45.873406744s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 45
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 265, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 45.873406744s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 45
+}
+]
+2025-12-16 16:14:13,385 - WARNING - \u26a0\ufe0f API key #2 failed. \u0110ang chuy\u1ec3n...
+2025-12-16 16:14:13,385 - INFO - \u2705 Chuy\u1ec3n sang API key #3
+2025-12-16 16:14:20,215 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 39.0329446s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 265, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 39.0329446s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]
+2025-12-16 16:17:04,693 - INFO - \u2705 APIKeyManager kh\u1edfi t\u1ea1o v\u1edbi 3 key(s)
+2025-12-16 16:17:04,696 - INFO - \u2705 \u0110ã t\u1ea3i 35 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:17:04,696 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 35 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:17:16,993 - INFO - \U0001f4be \u0110ã l\u01b0u 36 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
+2025-12-16 16:17:53,307 - WARNING - L\u1ea7n th\u1eed 1: L\u1ed7i t\u1ea3i t\u1eeb VCI: 'NoneType' object is not subscriptable
+2025-12-16 16:17:53,307 - INFO - TCBS không cung c\u1ea5p thông tin danh sách. D\u1eef li\u1ec7u t\u1ef1 \u0111\u1ed9ng tr\u1ea3 v\u1ec1 t\u1eeb VCI.
+2025-12-16 16:17:53,668 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:53,990 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:54,350 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:54,680 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:55,162 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:55,540 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:55,927 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:56,263 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-12-16: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:58,686 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:59,091 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:59,574 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:17:59,997 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:00,434 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:00,809 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:01,172 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:01,505 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-12-16: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:03,842 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:04,188 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:04,495 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:04,848 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:05,218 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:05,542 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:05,864 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:06,189 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-12-16: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:06,197 - WARNING - L\u1ea7n th\u1eed 1: L\u1ed7i t\u1ea3i t\u1eeb TCBS: RetryError[<Future at 0x2da033b5f30 state=finished raised ValueError>]
+2025-12-16 16:18:07,304 - WARNING - L\u1ea7n th\u1eed 2: L\u1ed7i t\u1ea3i t\u1eeb VCI: 'NoneType' object is not subscriptable
+2025-12-16 16:18:07,304 - INFO - TCBS không cung c\u1ea5p thông tin danh sách. D\u1eef li\u1ec7u t\u1ef1 \u0111\u1ed9ng tr\u1ea3 v\u1ec1 t\u1eeb VCI.
+2025-12-16 16:18:07,617 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:07,959 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:08,287 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:08,631 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:08,969 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:09,312 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:09,660 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:10,022 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-12-16: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:12,377 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:12,709 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:13,037 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:13,355 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:13,672 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:13,989 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:14,317 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:14,645 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-12-16: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:16,972 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2018-01-01 \u0111\u1ebfn 2018-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:17,324 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2019-01-01 \u0111\u1ebfn 2019-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:17,692 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2020-01-01 \u0111\u1ebfn 2020-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:18,026 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2021-01-01 \u0111\u1ebfn 2021-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:18,355 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2022-01-01 \u0111\u1ebfn 2022-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:18,690 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2023-01-01 \u0111\u1ebfn 2023-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:19,040 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2024-01-01 \u0111\u1ebfn 2024-12-31: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:19,391 - ERROR - D\u1eef li\u1ec7u không t\u1ed3n t\u1ea1i t\u1eeb 2025-01-01 \u0111\u1ebfn 2025-12-16: T\u1ea3i d\u1eef li\u1ec7u không thành công: 404 - Not Found
+2025-12-16 16:18:19,392 - WARNING - L\u1ea7n th\u1eed 2: L\u1ed7i t\u1ea3i t\u1eeb TCBS: RetryError[<Future at 0x2daa4216140 state=finished raised ValueError>]
+2025-12-16 16:18:19,637 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 39.604190184s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 265, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+Please retry in 39.604190184s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]
+2025-12-16 16:18:19,656 - WARNING - \u26a0\ufe0f API key #1 failed. \u0110ang chuy\u1ec3n...
+2025-12-16 16:18:19,656 - INFO - \u2705 Chuy\u1ec3n sang API key #2
+2025-12-16 16:18:20,018 - ERROR - L\u1ed7i streaming: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 39.229455733s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 265, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.ResourceExhausted: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/usage?tab=rate-limit. 
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 0, model: gemini-2.0-flash
+* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_input_token_count, limit: 0, model: gemini-2.0-flash
+Please retry in 39.229455733s. [links {
+  description: "Learn more about Gemini API quotas"
+  url: "https://ai.google.dev/gemini-api/docs/rate-limits"
+}
+, violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerDayPerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_requests"
+  quota_id: "GenerateRequestsPerMinutePerProjectPerModel-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+violations {
+  quota_metric: "generativelanguage.googleapis.com/generate_content_free_tier_input_token_count"
+  quota_id: "GenerateContentInputTokensPerModelPerMinute-FreeTier"
+  quota_dimensions {
+    key: "model"
+    value: "gemini-2.0-flash"
+  }
+  quota_dimensions {
+    key: "location"
+    value: "global"
+  }
+}
+, retry_delay {
+  seconds: 39
+}
+]
+2025-12-16 16:18:20,019 - WARNING - \u26a0\ufe0f API key #2 failed. \u0110ang chuy\u1ec3n...
+2025-12-16 16:18:20,019 - INFO - \u2705 Chuy\u1ec3n sang API key #3
+2025-12-16 16:18:59,012 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 16:20:31,448 - INFO - \u2705 APIKeyManager kh\u1edfi t\u1ea1o v\u1edbi 3 key(s)
+2025-12-16 16:20:31,449 - INFO - \u2705 \u0110ã t\u1ea3i 36 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:20:31,450 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 36 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:20:56,473 - INFO - \u2705 \u0110ã t\u1ea3i 1988 ngày d\u1eef li\u1ec7u cho VCB t\u1eeb Vnstock
+2025-12-16 16:20:56,476 - INFO - \U0001f4be \u0110ã l\u01b0u 37 tin nh\u1eafn vào data/chat_history\chat_global_chat.json
+2025-12-16 16:32:52,598 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 16:32:52,610 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 16:33:20,923 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 16:33:47,266 - INFO - \u2705 \u0110ã t\u1ea3i 37 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 16:33:47,268 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 37 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 16:34:03,687 - WARNING - Concurrent fetch realtime th\u1ea5t b\u1ea1i: 
+2025-12-16 16:34:15,202 - INFO - \U0001f4be \u0110ã l\u01b0u 38 tin nh\u1eafn vào data/chat_history\chat_global_chat.json

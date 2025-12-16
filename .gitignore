@@ -62,8 +62,8 @@ app.log
 # ===========================
 # 💾 DATA (optional - uncomment if needed)
 # ===========================
-# data/prices/*.csv
-# data/chat_history/
+data/prices/*.csv
+data/chat_history/
 
 # ===========================
 # 🖥️ OS SPECIFIC

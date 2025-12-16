@@ -1,9 +1,9 @@
 {
   "session_id": "global_chat",
-  "last_updated": "2025-12-07T00:31:27.243117",
-  "message_count": 33,
+  "last_updated": "2025-12-16T16:34:15.200087",
+  "message_count": 38,
   "metadata": {
-    "type": "streaming"
+    "type": "direct_price"
   },
   "messages": [
     {
@@ -137,6 +137,26 @@
     {
       "user": "chỉ số vnindex hôm nay",
       "assistant": "VNINDEX hiện ở mức 1,741 VNĐ, trên cả SMA(20) và SMA(50), cho thấy xu hướng tăng mạnh. RSI ở mức 84.5 cho thấy thị trường đang quá mua, cần cẩn trọng với khả năng điều chỉnh. Volume giao dịch ở mức bình thường.\n"
+    },
+    {
+      "user": "chỉ số vnindex hôm nay thế nào?",
+      "assistant": "Dựa trên dữ liệu kỹ thuật hiện"
+    },
+    {
+      "user": "chỉ số vnindex hôm nay thế nào?",
+      "assistant": "\nDựa trên dữ"
+    },
+    {
+      "user": "chỉ số vnindex",
+      "assistant": "📊 PHÂN TÍCH KỸ THUẬT VNINDEX:\n- Giá hiện tại: 1,679 VNĐ\n- SMA(20): 1,693 | Xu hướng: Giảm\n- SMA(50): 1,681 | Golden Cross: Có\n- RSI(14): 49.7 - Trung tính\n- Volume: 1.1x trung bình (Bình thường)"
+    },
+    {
+      "user": "VCB hiện tại",
+      "assistant": "📊 PHÂN TÍCH KỸ THUẬT VCB:\n- Giá hiện tại: 57 VNĐ\n- SMA(20): 58 | Xu hướng: Giảm\n- SMA(50): 60 | Golden Cross: Không\n- RSI(14): 38.0 - Trung tính\n- Volume: 1.8x trung bình (Mạnh)"
+    },
+    {
+      "user": "chỉ số vnindex",
+      "assistant": "📊 PHÂN TÍCH KỸ THUẬT VNINDEX:\n- Giá hiện tại: 1,679 VNĐ\n- SMA(20): 1,693 | Xu hướng: Giảm\n- SMA(50): 1,681 | Golden Cross: Có\n- RSI(14): 49.7 - Trung tính\n- Volume: 1.1x trung bình (Bình thường)\n\n🎯 TÍN HIỆU VNINDEX:\n🟡 Không có tín hiệu rõ ràng"
     }
   ]
 }

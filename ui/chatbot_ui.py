@@ -95,7 +95,7 @@ def inject_chatbot_css():
 # KHỞI TẠO CHATBOT SESSION
 # ============================================================
 def initialize_chatbot_session():
-    """Khởi tạo chatbot và session state - PURE LAZY INIT"""
+    """Khởi tạo chatbot và session state - SINGLE KEY SUPPORT"""
     # Sử dụng session_id cố định
     session_id = "global_chat"
     
@@ -104,17 +104,19 @@ def initialize_chatbot_session():
         if st.session_state.get('show_chatbot_popup', False):
             try:
                 from config.settings import GEMINI_API_KEY
-                if not GEMINI_API_KEY or GEMINI_API_KEY == "your-gemini-api-key-here":
+                
+                if not GEMINI_API_KEY:
                     st.session_state.chatbot = None
                     st.session_state.chatbot_error = "❌ Chưa cấu hình GEMINI_API_KEY"
                 else:
-                    # Tạo chatbot với session_id cố định và auto_load=True
+                    # Tạo chatbot với single key
                     st.session_state.chatbot = PortfolioChatbot(
                         GEMINI_API_KEY,
                         session_id=session_id,
                         auto_load=True
                     )
                     st.session_state.chatbot_error = None
+                    print("✅ Chatbot khởi tạo thành công")
                         
             except Exception as e:
                 st.session_state.chatbot = None
@@ -184,7 +186,7 @@ def handle_user_message_stream(user_message):
                 full_response += chunk
                 # Update với cursor để thấy effect đang gõ
                 message_placeholder.markdown(full_response + "▌")
-                time.sleep(0.002)  # Minimal delay cho smooth effect
+                time.sleep(0.001)  # Reduced delay cho smoother streaming
             
             # Remove cursor khi hoàn thành
             message_placeholder.markdown(full_response)

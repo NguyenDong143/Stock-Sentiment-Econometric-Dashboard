@@ -318,39 +318,64 @@ def render(ticker: str = None):
                 indicators=selected_indicators,
                 levels=fib_levels if show_fibonacci else None,
                 title=f"📈 {ticker}",
-                height=850,  # Tăng chiều cao
+                height=900,  # Tăng chiều cao lên 900px để rộng rãi hơn
                 show_volume=show_volume,
-                default_visible_days=60  # Hiển thị 60 ngày (2 tháng) để nến to rõ hơn
+                default_visible_days=40  # Mặc định hiển thị 40 ngày (zoom in) để nến to và rõ chi tiết hơn
             )
             st.plotly_chart(fig, use_container_width=True)
         except Exception as e:
             st.error(f"❌ Lỗi khi vẽ biểu đồ: {e}")
         
         # ==============================
-        # 📋 Bảng tóm tắt chỉ số
+        # ==============================
+        # 📋 Bảng tóm tắt chỉ số (REDESIGNED)
         # ==============================
         if selected_indicators:
-            st.subheader("📋 Tóm tắt chỉ số kỹ thuật")
+            st.markdown("### 📋 Tóm tắt chỉ số kỹ thuật")
             
             indicator_summary = indicators.get_indicator_summary(df_price)
             
             if indicator_summary:
-                cols = st.columns(len(indicator_summary))
+                # Tạo grid layout 4 cột
+                cols = st.columns(4)
                 
                 for idx, (name, values) in enumerate(indicator_summary.items()):
-                    with cols[idx]:
-                        st.markdown(f"**{name.replace('_', ' ')}**")
-                        for key, val in values.items():
-                            # Tô màu tín hiệu
-                            if key == "Tín hiệu":
-                                if "BUY" in str(val):
-                                    st.success(f"🟢 {val}")
-                                elif "SELL" in str(val):
-                                    st.error(f"🔴 {val}")
-                                else:
-                                    st.info(f"🟡 {val}")
+                    # Rotate qua các cột: 0, 1, 2, 3, 0, 1...
+                    with cols[idx % 4]:
+                        with st.container(border=True): # Tạo khung card đẹp mắt
+                            st.markdown(f"**{name.replace('_', ' ')}**")
+                            
+                            # Xử lý hiển thị dựa trên loại chỉ số
+                            signal = values.get("Tín hiệu", "N/A")
+                            
+                            # Determine color based on signal
+                            if "BUY" in str(signal) or "Bullish" in str(signal) or "Mạnh" in str(signal):
+                                color = "green"
+                                icon = "🟢"
+                            elif "SELL" in str(signal) or "Bearish" in str(signal) or "Weak" in str(signal):
+                                color = "red"
+                                icon = "🔴"
                             else:
-                                st.text(f"{key}: {val}")
+                                color = "gray"
+                                icon = "🟡"
+
+                            # Hiển thị giá trị chính bằng st.metric
+                            main_val = values.get("Giá trị") or values.get("MACD") or values.get("Vị trí") or values.get("Giá trị ADX")
+                            
+                            st.markdown(f"<h3 style='margin:0; padding:0; color:{color}'>{main_val}</h3>", unsafe_allow_html=True)
+                            st.caption(f"{icon} {signal}")
+                            
+                            # Hiển thị các thông tin phụ (nếu có)
+                            extra_info = []
+                            for k, v in values.items():
+                                if k not in ["Giá trị", "Tín hiệu", "MACD", "Vị trí", "Giá trị ADX"]:
+                                     extra_info.append(f"{k}: {v}")
+                            
+                            if extra_info:
+                                st.divider()
+                                for info in extra_info:
+                                    st.text(info)
+
             else:
                 st.info("Chọn các chỉ số từ sidebar để xem tóm tắt.")
         
