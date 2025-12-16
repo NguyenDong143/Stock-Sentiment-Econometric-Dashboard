@@ -295,6 +295,29 @@ git push origin feature/AmazingFeature
   <strong>⭐ Nếu dự án hữu ích, hãy cho một star nhé!</strong>
 </p>
 
+<<<<<<< HEAD
 <p align="center">
   📧 Có thắc mắc? Tạo <a href="../../issues">Issue</a> trên GitHub
 </p>
+=======
+**Nguyễn Hoàng Đồng**
+
+---
+
+## 📧 Liên hệ
+
+Nếu có thắc mắc hoặc góp ý, vui lòng tạo Issue trên GitHub.
+
+---
+
+## 🙏 Acknowledgments
+
+- PhoBERT model: VinAI Research
+- Vnstock library: Thinh Vu
+- Google Gemini API
+- Streamlit Community
+
+---
+
+**⭐ Nếu dự án hữu ích, hãy cho một star nhé!**
+>>>>>>> fbdeb1de2360e4f4249129713c6e453ccc69be87
