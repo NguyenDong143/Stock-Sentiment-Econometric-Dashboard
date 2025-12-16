@@ -2056,3 +2056,104 @@ google.api_core.exceptions.PermissionDenied: 403 Your API key was reported as le
 2025-12-16 14:44:51,417 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
 2025-12-16 14:44:51,435 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
 2025-12-16 14:45:44,963 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:48:36,673 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 14:48:36,707 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 14:49:03,226 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:55:22,946 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 14:56:15,790 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 14:56:15,790 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:02:34,921 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:02:36,649 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 15:02:36,650 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:03:14,069 - INFO - Không ph\u1ea3i là mã ch\u1ee9ng khoán, thông tin công ty và tài chính không kh\u1ea3 d\u1ee5ng.
+2025-12-16 15:03:14,915 - INFO - \u2705 \u0110ã t\u1ea3i 1988 ngày d\u1eef li\u1ec7u cho VNINDEX t\u1eeb Vnstock
+2025-12-16 15:03:15,209 - ERROR - L\u1ed7i streaming: 403 Your API key was reported as leaked. Please use another API key.
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 275, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Your API key was reported as leaked. Please use another API key.
+2025-12-16 15:03:35,711 - ERROR - L\u1ed7i streaming: 403 Your API key was reported as leaked. Please use another API key.
+Traceback (most recent call last):
+  File "D:\Stock_News_Project\models\chatbot_services.py", line 275, in generate_response_stream
+    response = model_instance.generate_content(
+        full_prompt,
+        stream=True,
+        safety_settings=self.safety_settings,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\generativeai\generative_models.py", line 325, in generate_content
+    iterator = self._client.stream_generate_content(
+        request,
+        **request_options,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\ai\generativelanguage_v1beta\services\generative_service\client.py", line 1134, in stream_generate_content
+    response = rpc(
+        request,
+    ...<2 lines>...
+        metadata=metadata,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\gapic_v1\method.py", line 131, in __call__
+    return wrapped_func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 294, in retry_wrapped_func
+    return retry_target(
+        target,
+    ...<3 lines>...
+        on_error=on_error,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 156, in retry_target
+    next_sleep = _retry_error_helper(
+        exc,
+    ...<6 lines>...
+        timeout,
+    )
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_base.py", line 214, in _retry_error_helper
+    raise final_exc from source_exc
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\retry\retry_unary.py", line 147, in retry_target
+    result = target()
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\timeout.py", line 130, in func_with_timeout
+    return func(*args, **kwargs)
+  File "D:\Stock_News_Project\venv\Lib\site-packages\google\api_core\grpc_helpers.py", line 173, in error_remapped_callable
+    raise exceptions.from_grpc_error(exc) from exc
+google.api_core.exceptions.PermissionDenied: 403 Your API key was reported as leaked. Please use another API key.
+2025-12-16 15:07:50,174 - INFO - L\u1ecdc d\u1eef li\u1ec7u FLC \u0111\u1ebfn ngày delisting: 2023-09-05
+2025-12-16 15:07:50,181 - INFO - \u2705 \u0110ã t\u1ea3i 1408 ngày d\u1eef li\u1ec7u cho FLC t\u1eeb Vnstock
+2025-12-16 15:08:10,083 - INFO - Successfully fetched 10 articles from vnexpress
+2025-12-16 15:09:34,870 - INFO - \u2705 \u0110ã t\u1ea3i 33 tin nh\u1eafn t\u1eeb data/chat_history\chat_global_chat.json
+2025-12-16 15:09:34,870 - INFO - \u2705 \u0110ã khôi ph\u1ee5c 33 tin nh\u1eafn t\u1eeb session: global_chat
+2025-12-16 15:22:48,624 - INFO - Successfully fetched 10 articles from vnexpress

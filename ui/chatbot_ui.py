@@ -280,37 +280,18 @@ def show_quick_questions_callback():
 # FLOATING BUTTON
 # ============================================================
 def render_floating_button():
-    """Render floating button"""
+    """Render floating button - GIỮ STATE ỔN ĐỊNH"""
     inject_chatbot_css()
     
     def toggle_chatbot():
-        new_state = not st.session_state.get('show_chatbot_popup', False)
-        st.session_state.show_chatbot_popup = new_state
-        # Lưu thời điểm click để tracking
-        if new_state:
-            import time
-            st.session_state.chatbot_opened_at = time.time()
+        st.session_state.show_chatbot_popup = not st.session_state.get('show_chatbot_popup', False)
     
     # Khởi tạo state - mặc định ĐÓNG
     if 'show_chatbot_popup' not in st.session_state:
         st.session_state.show_chatbot_popup = False
     
-    # Tự động đóng chatbot khi thay đổi cấu hình sidebar
-    if 'last_sidebar_state' not in st.session_state:
-        st.session_state.last_sidebar_state = None
-    
-    current_sidebar_state = (
-        st.session_state.get('sidebar_ticker', ''),
-        st.session_state.get('sidebar_data_type', ''),
-        st.session_state.get('sidebar_time_period', '')
-    )
-    
-    # Đóng chatbot khi sidebar thay đổi
-    if (st.session_state.last_sidebar_state is not None and 
-        st.session_state.last_sidebar_state != current_sidebar_state):
-        st.session_state.show_chatbot_popup = False
-    
-    st.session_state.last_sidebar_state = current_sidebar_state
+    # GIỮ CHATBOT STATE - KHÔNG tự động đóng khi sidebar thay đổi
+    # Điều này tránh việc reset page và mất thời gian khởi tạo
     
     st.button(
         "🤖", 
@@ -335,9 +316,9 @@ def render_dialog_content():
     with col1:
         st.markdown("### 💬 AI Assistant - Market Analysis")
     with col2:
-        if st.button("✖", key="close_chatbot_btn", type="secondary"):
+        def close_chatbot():
             st.session_state.show_chatbot_popup = False
-            st.rerun()
+        st.button("✖", key="close_chatbot_btn", type="secondary", on_click=close_chatbot)
     
     # Thông tin khả năng
     with st.expander("ℹ️ Thông tin Chatbot", expanded=False):
@@ -373,7 +354,7 @@ def render_dialog_content():
     
     if user_input and user_input.strip():
         handle_user_message_stream(user_input.strip())
-        st.rerun()
+        # Không cần st.rerun() - message đã hiển thị trong handle_user_message_stream
 
 
 # ============================================================

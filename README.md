@@ -1,373 +1,300 @@
-# 📊 Stock News Sentiment & Econometric Analysis Dashboard
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8+-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python"/>
+  <img src="https://img.shields.io/badge/Streamlit-1.28+-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="Streamlit"/>
+  <img src="https://img.shields.io/badge/PhoBERT-NLP-00D4AA?style=for-the-badge&logo=huggingface&logoColor=white" alt="PhoBERT"/>
+  <img src="https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini"/>
+</p>
 
-Web application Streamlit phân tích ảnh hưởng của tin tức đến giá cổ phiếu Việt Nam sử dụng **PhoBERT**, **AI Chatbot** và các mô hình kinh tế lượng (Pearson, Granger, TVAR).
+<h1 align="center">📊 Stock Sentiment & Econometric Dashboard</h1>
 
----
+<p align="center">
+  <strong>Phân tích ảnh hưởng của tin tức đến giá cổ phiếu Việt Nam</strong><br>
+  <em>Sử dụng PhoBERT, AI Chatbot và các mô hình kinh tế lượng</em>
+</p>
 
-## 🎯 Mô tả dự án
-
-Dự án này phát triển một hệ thống phân tích toàn diện để nghiên cứu mối quan hệ giữa tin tức kinh tế và biến động giá cổ phiếu trên thị trường chứng khoán Việt Nam. Hệ thống sử dụng kỹ thuật xử lý ngôn ngữ tự nhiên (NLP) với mô hình PhoBERT để phân tích cảm xúc tin tức, kết hợp với các phương pháp kinh tế lượng để đo lường tác động của tin tức đến giá cổ phiếu.
-
-### 🎓 Mục tiêu nghiên cứu
-
-- Phân tích cảm xúc tin tức tài chính tiếng Việt bằng PhoBERT
-- Đo lường tương quan giữa sentiment score và biến động giá cổ phiếu
-- Kiểm định mối quan hệ nhân quả Granger giữa tin tức và giá
-- Xây dựng mô hình TVAR để dự báo giá theo chế độ thị trường
-- Cung cấp công cụ trực quan hóa và phân tích tương tác
-
----
-
-## ✨ Tính năng nổi bật
-
-### 🤖 AI Chatbot
-- Trợ lý thông minh tích hợp Google Gemini API
-- Tự động lưu và quản lý lịch sử hội thoại theo session
-- Hỗ trợ nhiều phiên chat khác nhau
-- Giao diện thân thiện, dễ sử dụng
-
-### 📈 Phân tích cảm xúc (Sentiment Analysis)
-- Sử dụng mô hình PhoBERT được fine-tune cho tiếng Việt
-- Phân loại tin tức: Tích cực, Tiêu cực, Trung tính
-- Tính toán sentiment score và phân tích theo thời gian
-- Hỗ trợ phân tích cả tiêu đề và nội dung tin tức
-
-### 📊 Kiểm định thống kê
-- **Pearson Correlation**: Đo lường mối tương quan tuyến tính
-- **Granger Causality Test**: Kiểm định nhân quả theo thời gian
-- **TVAR Model**: Mô hình Vector Autoregression với ngưỡng (Threshold VAR)
-
-### 💹 Phân tích kỹ thuật
-- **Dữ liệu realtime**: Tích hợp VNDirect API
-- **Dữ liệu lịch sử**: Vnstock API
-- **Biểu đồ nến**: Candlestick charts chuyên nghiệp
-- **15+ chỉ báo kỹ thuật**:
-  - Moving Averages: SMA, EMA, WMA
-  - Momentum: RSI, Stochastic Oscillator
-  - Trend: MACD, ADX, Parabolic SAR
-  - Volatility: Bollinger Bands, ATR
-  - Volume: OBV, VWAP, Volume Profile
-  - Patterns: Candlestick patterns, Chart patterns
-
-### 📉 Trực quan hóa dữ liệu
-- Interactive charts với Plotly
-- Biểu đồ so sánh sentiment và giá cổ phiếu
-- Visualization cho kết quả kiểm định thống kê
-- Dashboard tổng quan thị trường
+<p align="center">
+  <a href="#-tính-năng">Tính năng</a> •
+  <a href="#-cài-đặt-nhanh">Cài đặt</a> •
+  <a href="#-hướng-dẫn-sử-dụng">Hướng dẫn</a> •
+  <a href="#-công-nghệ">Công nghệ</a>
+</p>
 
 ---
 
-## 🚀 Cài đặt
+## 🎯 Giới thiệu
 
-### Yêu cầu hệ thống
+Dashboard tương tác phân tích **mối quan hệ giữa tin tức và giá cổ phiếu** trên thị trường chứng khoán Việt Nam. Tích hợp:
+
+- 🤖 **AI Chatbot** với Google Gemini - Trả lời real-time về thị trường
+- 📊 **8 loại biểu đồ** chuyên nghiệp giống FireAnt
+- 📈 **PhoBERT** - Phân tích cảm xúc tin tức tiếng Việt
+- 📉 **Mô hình kinh tế lượng** - Pearson, Granger, TVAR
+
+---
+
+## ✨ Tính năng
+
+### 🤖 AI Chatbot Thông minh
+| Tính năng | Mô tả |
+|-----------|-------|
+| 💬 Real-time Chat | Trả lời câu hỏi về cổ phiếu, thị trường |
+| 📊 Phân tích kỹ thuật | RSI, SMA, Golden Cross tự động |
+| 📰 Sentiment Analysis | Phân tích tin tức & tác động giá |
+| 💾 Lưu lịch sử | Auto-save theo session |
+
+### 📈 Biểu đồ Chuyên nghiệp
+
+```
+🕯️ Candle    📈 Line      📊 Bar       🔲 Step
+🏔️ Mountain  🌊 Wave      ⚫ Scatter   📉 Histogram
+```
+
+**FireAnt-style Interactions:**
+- ✅ Smooth transitions 300ms
+- ✅ Pan mode (kéo để di chuyển)
+- ✅ Crosshair spike lines
+- ✅ Range selector: 1T → 9T → 5N → All
+
+### 📊 Chỉ báo Kỹ thuật (15+)
+
+| Nhóm | Chỉ báo |
+|------|---------|
+| **Trend** | SMA, EMA, MACD, ADX |
+| **Momentum** | RSI, Stochastic |
+| **Volatility** | Bollinger Bands, ATR |
+| **Volume** | OBV, VWAP |
+| **Support/Resistance** | Fibonacci Retracement |
+
+### 📉 Mô hình Kinh tế lượng
+
+| Mô hình | Ứng dụng |
+|---------|----------|
+| **Pearson** | Đo tương quan sentiment-giá |
+| **Granger** | Kiểm định nhân quả thời gian |
+| **TVAR** | Dự báo theo regime thị trường |
+
+---
+
+## 🚀 Cài đặt Nhanh
+
+### Yêu cầu
 - Python 3.8+
-- Windows/Linux/MacOS
-- RAM: 4GB+ (khuyến nghị 8GB)
-- Disk: 2GB+ dung lượng trống
+- RAM 4GB+ (khuyến nghị 8GB)
+- Disk 2GB+
 
-### Bước 1: Clone repository
+### Bước 1: Clone & Setup
 
 ```bash
-git clone <repository-url>
+# Clone repository
+git clone https://github.com/your-username/Stock_News_Project.git
 cd Stock_News_Project
-```
 
-### Bước 2: Tạo môi trường ảo (Virtual Environment)
-
-```bash
+# Tạo virtual environment
 python -m venv venv
-```
 
-Kích hoạt môi trường ảo:
-
-**Windows (PowerShell):**
-```powershell
+# Kích hoạt (Windows PowerShell)
 .\venv\Scripts\Activate.ps1
-```
 
-**Windows (CMD):**
-```cmd
+# Hoặc Windows CMD
 .\venv\Scripts\activate.bat
-```
 
-**Linux/Mac:**
-```bash
+# Hoặc Linux/Mac
 source venv/bin/activate
 ```
 
-### Bước 3: Cài đặt dependencies
+### Bước 2: Cài đặt Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Bước 4: Cấu hình API Keys
+### Bước 3: Cấu hình API Keys
 
-Tạo file `config/settings.py` và thêm các API keys:
+Tạo file `config/settings.py`:
 
 ```python
-# Google Gemini API
-GOOGLE_API_KEY = "your_google_gemini_api_key"
+# Google Gemini API (bắt buộc cho Chatbot)
+GEMINI_API_KEY = "your_gemini_api_key"
 
-# VNDirect API (nếu cần)
-VNDIRECT_API_KEY = "your_vndirect_api_key"
+# Lấy key tại: https://makersuite.google.com/app/apikey
 ```
 
-**Lấy API keys:**
-- Google Gemini: https://makersuite.google.com/app/apikey
-- VNDirect: https://www.vndirect.com.vn/
-
-### Bước 5: Chạy ứng dụng
+### Bước 4: Chạy ứng dụng
 
 ```bash
 streamlit run app.py
 ```
 
-Ứng dụng sẽ mở tại: `http://localhost:8501`
+🌐 Mở browser: **http://localhost:8501**
 
 ---
 
-## 📁 Cấu trúc dự án
+## 📖 Hướng dẫn Sử dụng
+
+### 🎛️ Sidebar Controls
+
+```
+📊 Select Ticker  → Chọn mã cổ phiếu (VCB, FLC, ...)
+📈 Chart Type     → 8 loại biểu đồ
+📰 Data Type      → Content / Title
+⏳ Time Period    → Before / After Scandal
+```
+
+### 🗂️ Tabs chính
+
+| Tab | Chức năng |
+|-----|-----------|
+| **Pricing** | Biểu đồ giá, chỉ báo kỹ thuật |
+| **Sentiment** | Phân tích cảm xúc PhoBERT |
+| **News** | Tin tức & sentiment scores |
+| **Pearson** | Correlation analysis |
+| **Granger** | Causality testing |
+| **TVAR** | Threshold VAR model |
+
+### 🤖 AI Chatbot
+
+1. Click nút **🤖** ở góc phải dưới
+2. Nhập câu hỏi: *"Phân tích VCB?"*
+3. Bot trả lời với dữ liệu real-time
+
+**Ví dụ câu hỏi:**
+- "RSI của VCB là bao nhiêu?"
+- "So sánh VCB với BID"
+- "Tin tức VCB ảnh hưởng giá thế nào?"
+
+---
+
+## 📁 Cấu trúc Dự án
 
 ```
 Stock_News_Project/
-├── app.py                          # Entry point chính của ứng dụng
-├── requirements.txt                # Python dependencies
-├── README.md                       # Tài liệu dự án
-├── clear_cache.py                  # Script xóa cache
-├── test_endpoints.py               # Test API endpoints
+├── 📄 app.py                 # Entry point
+├── 📄 requirements.txt       # Dependencies
 │
-├── config/                         # Cấu hình
-│   ├── settings.py                 # API keys và settings
-│   └── cache_config.py             # Cấu hình cache
+├── 📂 config/                # Cấu hình
+│   └── settings.py           # API keys
 │
-├── models/                         # Models và thuật toán
-│   ├── sentiment_phobert.py        # PhoBERT sentiment analysis
-│   ├── pearson_test.py             # Pearson correlation test
-│   ├── granger_test.py             # Granger causality test
-│   ├── tvar_model.py               # TVAR model implementation
-│   └── chatbot_services.py         # Chatbot logic với Gemini
+├── 📂 models/                # AI & ML Models
+│   ├── sentiment_phobert.py  # PhoBERT sentiment
+│   ├── chatbot_services.py   # Gemini chatbot
+│   ├── granger_test.py       # Granger causality
+│   └── tvar_model.py         # TVAR model
 │
-├── ui/                             # Giao diện Streamlit
-│   ├── chatbot_ui.py               # Chatbot interface
-│   ├── sentiment_tab.py            # Tab phân tích sentiment
-│   ├── pearson_tab.py              # Tab Pearson correlation
-│   ├── granger_tab.py              # Tab Granger causality
-│   ├── tvar_tab.py                 # Tab TVAR model
-│   ├── news_tab.py                 # Tab quản lý tin tức
-│   └── overview_tab.py             # Tab tổng quan
+├── 📂 ui/                    # Streamlit UI
+│   ├── overview_tab.py       # Tab tổng quan
+│   ├── sentiment_tab.py      # Tab sentiment
+│   ├── chatbot_ui.py         # Chatbot dialog
+│   └── ...
 │
-├── utils/                          # Utilities
-│   ├── data_loader.py              # Load dữ liệu từ files
-│   ├── charts.py                   # Vẽ biểu đồ
-│   ├── indicators.py               # Tính chỉ báo kỹ thuật
-│   ├── patterns.py                 # Nhận diện patterns
-│   ├── visualization.py            # Visualization functions
-│   ├── vndirect_api.py             # VNDirect API integration
-│   └── chat_history_manager.py     # Quản lý lịch sử chat
+├── 📂 utils/                 # Utilities
+│   ├── charts.py             # Chart rendering
+│   ├── indicators.py         # Technical indicators
+│   ├── vndirect_api.py       # Real-time API
+│   └── data_loader.py        # Data loading
 │
-└── data/                           # Dữ liệu
-    ├── prices/                     # Giá cổ phiếu lịch sử
-    ├── chat_history/               # Lịch sử chat sessions
-    ├── vnecon_before_scandals/     # Tin tức trước scandal
-    ├── vnecon_after_scandals/      # Tin tức sau scandal
-    ├── vnecon_title_before_scandals/
-    └── vnecon_title_after_scandals/
+└── 📂 data/                  # Datasets
+    ├── prices/               # Historical prices
+    └── vnecon_*/             # News data
 ```
 
 ---
 
-## 📖 Hướng dẫn sử dụng
+## 🛠️ Công nghệ
 
-### 1. AI Chatbot
-- Chọn session từ sidebar hoặc tạo session mới
-- Nhập câu hỏi về thị trường, cổ phiếu, tin tức
-- Lịch sử hội thoại được lưu tự động
-- Có thể xóa lịch sử hoặc chuyển session
+<table>
+<tr>
+<td align="center"><strong>Frontend</strong></td>
+<td align="center"><strong>AI/ML</strong></td>
+<td align="center"><strong>Data</strong></td>
+</tr>
+<tr>
+<td>
+  
+- Streamlit
+- Plotly
+- Matplotlib
 
-### 2. Phân tích Sentiment
-- Chọn mã cổ phiếu cần phân tích
-- Chọn khoảng thời gian (before/after scandal)
-- Xem kết quả phân tích: sentiment score, phân phối, correlation với giá
-- Xuất báo cáo và biểu đồ
+</td>
+<td>
 
-### 3. Kiểm định Pearson
-- Chọn cổ phiếu và khoảng thời gian
-- Hệ thống tự động tính correlation giữa sentiment và các metrics giá
-- Hiển thị heatmap và các chỉ số thống kê
+- PhoBERT (VinAI)
+- Google Gemini
+- Transformers
 
-### 4. Kiểm định Granger
-- Chọn biến độc lập và phụ thuộc
-- Đặt max lag để test
-- Xem kết quả F-statistic và p-value
-- Diễn giải mối quan hệ nhân quả
+</td>
+<td>
 
-### 5. Mô hình TVAR
-- Chọn biến và threshold
-- Huấn luyện mô hình với dữ liệu lịch sử
-- Xem kết quả dự báo theo regime
-- Đánh giá độ chính xác mô hình
+- Pandas
+- Vnstock API
+- VNDirect API
 
----
-
-## 🔧 Cấu hình nâng cao
-
-### Cache Management
-
-Clear cache khi cần:
-```bash
-python clear_cache.py
-```
-
-Hoặc từ Streamlit UI: Menu > Clear Cache
-
-### Custom Settings
-
-Chỉnh sửa `config/settings.py` để tùy chỉnh:
-- API keys
-- Model parameters
-- Data paths
-- Cache settings
-
----
-
-## 📊 Dữ liệu
-
-### Mã cổ phiếu hỗ trợ
-
-- **BID**: BIDV
-- **CTG**: VietinBank
-- **VCB**: Vietcombank
-- **FLC**: FLC Group
-- **GAB**: Ngân hàng Quân Đội
-- **HAI**: Hải Phát Invest
-- **SHB**: SHB Bank
-
-### Nguồn dữ liệu
-
-- **Tin tức**: VnEconomy (crawled data)
-- **Giá cổ phiếu lịch sử**: Vnstock API
-- **Giá realtime**: VNDirect API
-
----
-
-## 🛠️ Công nghệ sử dụng
-
-### Frontend & UI
-- **Streamlit**: Web framework
-- **Plotly**: Interactive charts
-- **Matplotlib/Seaborn**: Static visualizations
-
-### Machine Learning & NLP
-- **PhoBERT**: Sentiment analysis (vinai/phobert-base)
-- **Transformers**: Hugging Face library
-- **Google Gemini**: AI chatbot
-
-### Data Analysis
-- **Pandas**: Data manipulation
-- **NumPy**: Numerical computing
-- **Statsmodels**: Statistical tests
-- **SciPy**: Scientific computing
-
-### APIs & Data
-- **Vnstock**: Historical stock data
-- **VNDirect**: Realtime market data
-- **Google Gemini API**: AI assistant
-
----
-
-## 📝 Dependencies chính
-
-```
-streamlit>=1.28.0
-pandas>=2.0.0
-numpy>=1.24.0
-plotly>=5.14.0
-transformers>=4.30.0
-torch>=2.0.0
-statsmodels>=0.14.0
-scipy>=1.10.0
-vnstock>=1.0.0
-google-generativeai>=0.3.0
-```
-
-Xem đầy đủ trong `requirements.txt`
+</td>
+</tr>
+</table>
 
 ---
 
 ## 🐛 Troubleshooting
 
-### Lỗi import PhoBERT
-```bash
-pip install transformers torch --upgrade
-```
-
-### Lỗi API key
-- Kiểm tra file `config/settings.py`
-- Đảm bảo API keys hợp lệ và còn quota
-
-### Lỗi cache
-```bash
-python clear_cache.py
-```
-
-### Lỗi missing data
-- Kiểm tra folder `data/` có đầy đủ files
-- Download dữ liệu từ nguồn nếu thiếu
+| Lỗi | Giải pháp |
+|-----|-----------|
+| Import PhoBERT fail | `pip install transformers torch --upgrade` |
+| API key error | Kiểm tra `config/settings.py` |
+| Cache issues | `python clear_cache.py` |
+| Missing data | Kiểm tra thư mục `data/` |
 
 ---
 
-## 📈 Kết quả nghiên cứu
+## 📊 Mã Cổ phiếu Hỗ trợ
 
-Dự án đã phân tích ảnh hưởng của tin tức đến giá cổ phiếu trước và sau các scandal tài chính lớn tại Việt Nam, bao gồm:
-- FLC Group scandal
-- Ngân hàng Đông Á (GAB)
-- Hải Phát Invest (HAI)
+| Nhóm | Mã |
+|------|-----|
+| **FLC Group** | FLC, GAB, HAI, AMD, ART |
+| **VN30** | VCB, BID, CTG, TCB, MBB, VPB, FPT, HPG, VNM, ... |
+| **Custom** | Nhập bất kỳ mã nào |
 
-Kết quả cho thấy:
-- Sentiment score có tương quan đáng kể với biến động giá
-- Tin tức tiêu cực có tác động mạnh hơn tin tích cực
-- Mô hình TVAR cải thiện độ chính xác dự báo trong điều kiện thị trường bất ổn
+---
+
+## 📈 Kết quả Nghiên cứu
+
+> Dự án phân tích ảnh hưởng tin tức đến giá cổ phiếu trước/sau các scandal tài chính lớn tại Việt Nam.
+
+**Phát hiện chính:**
+- 📊 Sentiment score tương quan đáng kể với biến động giá
+- 📉 Tin tức tiêu cực tác động mạnh hơn tin tích cực
+- 📈 TVAR cải thiện dự báo trong thị trường bất ổn
 
 ---
 
 ## 🤝 Đóng góp
 
-Mọi đóng góp đều được hoan nghênh! 
+```bash
+# 1. Fork project
+# 2. Tạo feature branch
+git checkout -b feature/AmazingFeature
 
-1. Fork project
-2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to branch (`git push origin feature/AmazingFeature`)
-5. Mở Pull Request
+# 3. Commit changes
+git commit -m 'Add AmazingFeature'
 
----
-
-## 📄 License
-
-Dự án này được phát triển cho mục đích nghiên cứu và giáo dục.
+# 4. Push & Create PR
+git push origin feature/AmazingFeature
+```
 
 ---
 
-## 👥 Tác giả
+## 🙏 Credits
 
-**Stock News Project Team**
-
----
-
-## 📧 Liên hệ
-
-Nếu có thắc mắc hoặc góp ý, vui lòng tạo Issue trên GitHub.
+- **PhoBERT**: [VinAI Research](https://github.com/VinAIResearch/PhoBERT)
+- **Vnstock**: [Thinh Vu](https://github.com/thinh-vu/vnstock)
+- **Streamlit**: [Streamlit Community](https://streamlit.io)
+- **Google Gemini**: [Google AI](https://ai.google.dev)
 
 ---
 
-## 🙏 Acknowledgments
+<p align="center">
+  <strong>⭐ Nếu dự án hữu ích, hãy cho một star nhé!</strong>
+</p>
 
-- PhoBERT model: VinAI Research
-- Vnstock library: Thinh Vu
-- Google Gemini API
-- Streamlit Community
-
----
-
-**⭐ Nếu dự án hữu ích, hãy cho một star nhé!**
+<p align="center">
+  📧 Có thắc mắc? Tạo <a href="../../issues">Issue</a> trên GitHub
+</p>

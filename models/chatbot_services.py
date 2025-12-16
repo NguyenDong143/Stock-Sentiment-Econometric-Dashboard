@@ -285,7 +285,11 @@ Bạn có thể:
                     full_text += chunk.text
                     yield chunk.text
                 elif hasattr(chunk, "prompt_feedback"):
-                    yield f"⚠️ Response bị block"
+                    # Xử lý blocked response với thông tin chi tiết
+                    block_reason = "unknown"
+                    if hasattr(chunk.prompt_feedback, "block_reason"):
+                        block_reason = str(chunk.prompt_feedback.block_reason)
+                    yield f"⚠️ Response bị chặn bởi bộ lọc an toàn Google ({block_reason}). Vui lòng thử câu hỏi khác."
                     return
 
             if full_text:
@@ -297,8 +301,18 @@ Bạn có thể:
                 self._save_history_to_file(metadata={"type": "streaming"})
 
         except Exception as e:
+            error_str = str(e)
             logger.error(f"Lỗi streaming: {e}", exc_info=True)
-            yield f"⚠️ Lỗi streaming: {str(e)[:200]}"
+            
+            # Xử lý lỗi API key cụ thể
+            if "403" in error_str and "leaked" in error_str.lower():
+                yield "❌ **API Key đã bị vô hiệu hóa!**\n\nAPI key của bạn đã bị Google phát hiện leaked. Vui lòng:\n1. Tạo key mới tại: https://makersuite.google.com/app/apikey\n2. Cập nhật file `config/settings.py`\n3. Restart app"
+            elif "403" in error_str:
+                yield f"❌ **Lỗi xác thực API (403)**\n\nVui lòng kiểm tra API key trong `config/settings.py`"
+            elif "quota" in error_str.lower() or "429" in error_str:
+                yield "⚠️ **Đã hết quota API**\n\nVui lòng đợi 1 phút hoặc sử dụng API key khác."
+            else:
+                yield f"⚠️ Lỗi: {error_str[:150]}"
 
     # ====================================================================
     # NORMAL RESPONSE (Dùng cho test hoặc không streaming)
