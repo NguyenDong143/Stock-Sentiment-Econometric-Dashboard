@@ -24,7 +24,10 @@ def plot_sentiment_distribution(df: pd.DataFrame) -> go.Figure:
 
     # Ánh xạ giá trị cảm xúc
     mapping = {-1: "Tiêu cực 😞", 0: "Trung tính 😐", 1: "Tích cực 😃"}
-    df["Sentiment_Label"] = df["label"].map(mapping)
+    
+    # Thống kê số lượng
+    counts = df["label"].map(mapping).value_counts().reset_index()
+    counts.columns = ["Sentiment_Label", "Count"]
 
     color_map = {
         "Tích cực 😃": "#10b981",    # Xanh lá cây (Emerald)
@@ -32,22 +35,29 @@ def plot_sentiment_distribution(df: pd.DataFrame) -> go.Figure:
         "Tiêu cực 😞": "#ef4444"     # Đỏ (Red)
     }
 
-    fig = px.histogram(
-        df,
+    fig = px.bar(
+        counts,
         x="Sentiment_Label",
+        y="Count",
         color="Sentiment_Label",
         title="📊 Phân bố cảm xúc tin tức (PhoBERT)",
-        barmode="group",
+        text="Count",
         color_discrete_map=color_map,
         height=400
     )
+    
     fig.update_layout(
         template="plotly_dark",
         xaxis_title="Cảm xúc",
         yaxis_title="Số lượng tin",
         showlegend=False,
+        # Sắp xếp thứ tự trục X cố định
         xaxis={'categoryorder': 'array', 'categoryarray': ['Tích cực 😃', 'Trung tính 😐', 'Tiêu cực 😞']}
     )
+    
+    # Hiển thị số lượng trên đầu cột
+    fig.update_traces(textposition='outside')
+    
     return fig
 
 

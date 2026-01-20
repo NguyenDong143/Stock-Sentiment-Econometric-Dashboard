@@ -29,9 +29,9 @@ statsmodels==0.14.3
 # ==========================================================
 # 💬 NLP (optional: if using PhoBERT locally)
 # ==========================================================
-transformers==4.44.2
-torch==2.9.1
-underthesea==6.8.0   # Vietnamese text preprocessing (optional)
+# transformers==4.44.2
+# torch
+# underthesea==6.8.0   # Vietnamese text preprocessing (optional)
 
 # ==========================================================
 # 🤖 AI Chatbot (Google Gemini)

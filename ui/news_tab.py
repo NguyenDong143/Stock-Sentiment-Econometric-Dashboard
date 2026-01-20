@@ -28,7 +28,8 @@ from typing import List, Dict, Optional, Tuple
 from functools import lru_cache
 
 # Import PhoBERT sentiment analysis
-from models.sentiment_phobert import analyze_sentiment
+# Import moved to inside function to optimize load time
+# from models.sentiment_phobert import analyze_sentiment
 
 # Thiết lập logging
 logging.basicConfig(level=logging.INFO)
@@ -164,6 +165,9 @@ def get_ai_sentiment(text: str) -> Tuple[str, float]:
         Tuple[str, float]: (sentiment_label, confidence_score)
     """
     try:
+        # Lazy import to avoid loading torch/transformers on app startup
+        from models.sentiment_phobert import analyze_sentiment
+        
         result = analyze_sentiment(text)
         
         if result and isinstance(result, dict):
