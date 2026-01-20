@@ -229,7 +229,8 @@ tabs = st.tabs([
     "📰 News Articles",
     "📊 Kiểm định Tương quan (Pearson)",
     "🔁 Kiểm định Nhân quả (Granger)",
-    "📉 Mô hình Ngưỡng (TVAR)"
+    "📉 Mô hình Ngưỡng (TVAR)",
+    "☁️ Word Cloud"
 ])
 
 with tabs[0]:
@@ -250,6 +251,9 @@ with tabs[4]:
 with tabs[5]:
     tvar_tab = get_tab_module("ui.tvar_tab")
     tvar_tab(ticker)
+with tabs[6]:
+    wordcloud_tab = get_tab_module("ui.wordcloud_tab")
+    wordcloud_tab()
 
 
 

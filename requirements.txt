@@ -11,6 +11,7 @@ numpy==1.26.4
 plotly==5.24.1
 matplotlib==3.9.2
 seaborn==0.13.2
+wordcloud==1.9.3  # For word cloud visualization
 
 # ==========================================================
 # 📁 Data processing
