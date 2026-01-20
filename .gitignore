@@ -64,10 +64,25 @@ app.log
 # ===========================
 data/prices/*.csv
 data/chat_history/
-
+data/vnecon_after_scandals/
+data/vnecon_before_scandals/
+data/vnecon_title_after_scandals/
+data/vnecon_title_before_scandals/
+data/vnecon_title_scandals/
+data/vnecon_title_scandals_after/
+data/vnecon_title_scandals_before/
+data/vnecon_title_scandals_
 # ===========================
 # 🖥️ OS SPECIFIC
 # ===========================
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# ===========================
+# 📰 SCRAPED DATA FOLDERS
+# ===========================
+data/vnecon_after_scandals/
+data/vnecon_before_scandals/
+data/vnecon_title_after_scandals/
+data/vnecon_title_before_scandals/
