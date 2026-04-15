@@ -5,7 +5,8 @@
   <img src="https://img.shields.io/badge/Gemini-AI-4285F4?style=for-the-badge&logo=google&logoColor=white" alt="Gemini"/>
 </p>
 
-<h1 align="center">📊 Stock Sentiment & Econometric Dashboard</h1>
+<h1 align="center">📊📊 Analyzing Effects of News on Stock Prices using NLP and Econometric Models
+Evidence from the Vietnamese Stock Market</h1>
 
 <p align="center">
   <strong>Phân tích ảnh hưởng của tin tức đến giá cổ phiếu Việt Nam</strong><br>
@@ -23,8 +24,8 @@
 
 ## 🎯 Giới thiệu
 
-Dashboard tương tác phân tích **mối quan hệ giữa tin tức và giá cổ phiếu** trên thị trường chứng khoán Việt Nam. Tích hợp:
-
+Dự án này nghiên cứu mối quan hệ giữa tâm lý thị trường tin tức tài chính và biến động giá cổ phiếu trên thị trường chứng khoán Việt Nam.
+Sử dụng PhoBERT (công nghệ xử lý ngôn ngữ tự nhiên tiếng Việt) để trích xuất cảm xúc và các mô hình kinh tế lượng (hệ số tương quan Pearson, quan hệ nhân quả Granger và VAR ngưỡng), nghiên cứu đánh giá liệu các tín hiệu cảm xúc có thể giải thích hoặc dự đoán biến động giá cổ phiếu, đặc biệt là đối với các cổ phiếu có khả năng bị thao túng.
 - 🤖 **AI Chatbot** với Google Gemini - Trả lời real-time về thị trường
 - 📊 **8 loại biểu đồ** chuyên nghiệp giống FireAnt
 - 📈 **PhoBERT** - Phân tích cảm xúc tin tức tiếng Việt
